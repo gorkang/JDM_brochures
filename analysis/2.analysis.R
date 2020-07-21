@@ -3,11 +3,14 @@
 
 # Preparation -------------------------------------------------------------
 
-source("analysis/1.data_preparation_for_analysis.R")
+# Data preparation (avoiding packages start-up messages)
+suppressPackageStartupMessages(
+  source("analysis/1.data_preparation_for_analysis.R")
+  )
 
   # Cite packages used
-  # citation()
-  # report::cite_packages(session =  sessionInfo())
+    # citation()
+    # report::cite_packages(session =  sessionInfo())
 
   
 # Had Enough, Said Enough --------------------------------------------------------------------------------
@@ -84,7 +87,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     
   # __Final model --------------------------------------------------------------------------
 
-    # model = "error_PPV ~ brochure * age * disease + n_item + ind_apriori + ind_agreeableness + (1|ResponseId)"
+    # model = "error_PPV ~ brochure * normative_PPV * disease + n_item + ind_apriori + ind_agreeableness + (1|ResponseId)"
     
     model_PPV = lmer(error_PPV ~ 
                        brochure * normative_PPV + 
@@ -121,10 +124,10 @@ source("analysis/1.data_preparation_for_analysis.R")
     
     report_result(model_PPV, variable_name = "brochure (standard - pictorial)")
     report_result(model_PPV, variable_name = "normative_PPV (high - low)")
-    report_result(model_PPV, variable_name = "brochure (standard - pictorial):age (40 - 20)")
+    report_result(model_PPV, variable_name = "brochure (standard - pictorial):normative_PPV (high - low)")
     
     report_result(model_PPV, variable_name = "disease (Breast cancer - Down syndrome)")
-    # report_result(model_PPV, variable_name = "age (40 - 20):disease (Breast cancer - Down syndrome)")
+    # report_result(model_PPV, variable_name = "normative_PPV (high - low):disease (Breast cancer - Down syndrome)")
     
     
 
@@ -134,7 +137,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     # Other checks
       # Homogeneity if variances
       # car::leveneTest(residuals(h0_error) ~ df_JOINED$brochure)
-      # car::leveneTest(residuals(h0_error) ~ df_JOINED$age)
+      # car::leveneTest(residuals(h0_error) ~ df_JOINED$normative_PPV)
       
     
     # __FIGURE 3 ----------------
@@ -157,8 +160,12 @@ source("analysis/1.data_preparation_for_analysis.R")
         normative_PPV = c("low", "low", "high", "high")) %>% 
       group_by(normative_PPV)
     
-    
+
     plot_ridge_brochures_age = df_JOINED %>% 
+      
+      # Reorder normative_PPV
+      mutate(normative_PPV = fct_reorder(normative_PPV, desc(normative_PPV))) %>%
+      
       ggplot(aes(PPV_screening, brochure, fill = brochure)) +
       ggridges::geom_density_ridges(stat = "binline", bins = 20, scale = 0.95, draw_baseline = TRUE, alpha = .2) +
       ggridges::geom_density_ridges(alpha = .5, point_alpha = .3, jittered_points = TRUE) +
@@ -174,32 +181,29 @@ source("analysis/1.data_preparation_for_analysis.R")
       facet_grid(~ normative_PPV, labeller = as_labeller(appender))
     
     plot_ridge_brochures_age
-    ggsave("output/plots/Figure3 - PPV - brochure - age.png", plot_ridge_brochures_age, width = 18, height = 12, dp = 300)
+    ggsave("output/plots/Figure3 - PPV - brochure - normative_PPV.png", plot_ridge_brochures_age, width = 18, height = 12, dp = 300)
 
-    
-    
+
 
 # * TODO: Confidence PPV estimation -----------------------------------------
 
-    confidence_PPV = lmer(CONF_PPV_screening ~ brochure * age +
-                            
-                            PPV_screening +
-                            
-                            disease +
-                            n_item  +
-                            
-                            ind_apriori + 
-                            ind_agreeableness +
-                            
-                            (1|ResponseId) , df_JOINED) #+ (1|n_item)
-    
-    performance::check_collinearity(confidence_PPV)
-    performance::check_heteroscedasticity(confidence_PPV) # Warning: Heteroscedasticity (non-constant error variance) detected (p = 0.000)
-    performance::check_autocorrelation(confidence_PPV) # Warning: Autocorrelated residuals detected (p = 0.000)
-    summary(confidence_PPV); sjPlot::tab_model(confidence_PPV, show.r2 = TRUE, show.icc = FALSE, show.re.var = FALSE)   
-    
-  
-    
+    # confidence_PPV = lmer(CONF_PPV_screening ~ brochure * normative_PPV +
+    #                         
+    #                         PPV_screening +
+    #                         
+    #                         disease +
+    #                         n_item  +
+    #                         
+    #                         ind_apriori + 
+    #                         ind_agreeableness +
+    #                         
+    #                         (1|ResponseId) , df_JOINED) #+ (1|n_item)
+    # 
+    # performance::check_collinearity(confidence_PPV)
+    # performance::check_heteroscedasticity(confidence_PPV) # Warning: Heteroscedasticity (non-constant error variance) detected (p = 0.000)
+    # performance::check_autocorrelation(confidence_PPV) # Warning: Autocorrelated residuals detected (p = 0.000)
+    # summary(confidence_PPV); sjPlot::tab_model(confidence_PPV, show.r2 = TRUE, show.icc = FALSE, show.re.var = FALSE)   
+
     
     
 
@@ -209,7 +213,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     
 
     model_screening = glmer(RECOMEND_screening_AFTER ~ 
-                              brochure * age +
+                              brochure * normative_PPV +
                               
                               disease +
                               n_item +
@@ -232,14 +236,14 @@ source("analysis/1.data_preparation_for_analysis.R")
     summary(model_screening); sjPlot::tab_model(model_screening, show.r2 = TRUE, show.icc = FALSE, show.re.var = FALSE) # show.std = TRUE, show.stat = TRUE
     performance::check_collinearity(model_screening)
     performance::check_autocorrelation(model_screening)
-    gmodels::CrossTable(df_JOINED$RECOMEND_screening_AFTER, interaction(df_JOINED$brochure, df_JOINED$age, df_JOINED$disease, df_JOINED$n_item), expected = TRUE, prop.c = FALSE, prop.t = FALSE, prop.chisq = FALSE, sresid = TRUE, format = "SPSS")
+    gmodels::CrossTable(df_JOINED$RECOMEND_screening_AFTER, interaction(df_JOINED$brochure, df_JOINED$normative_PPV, df_JOINED$disease, df_JOINED$n_item), expected = TRUE, prop.c = FALSE, prop.t = FALSE, prop.chisq = FALSE, sresid = TRUE, format = "SPSS")
     
     
     report_result(model_screening, variable_name = "brochure (standard - pictorial)")
-    report_result(model_screening, variable_name = "age (40 - 20)")
+    report_result(model_screening, variable_name = "normative_PPV (high - low)")
     report_result(model_screening, variable_name = "disease (Breast cancer - Down syndrome)")
         
-    report_result(model_screening, variable_name = "brochure (standard - pictorial):age (40 - 20)")
+    report_result(model_screening, variable_name = "brochure (standard - pictorial):normative_PPV (high - low)")
     
     # report_result(model_screening, variable_name = "presencePrevalence (Yes - No)")
     report_result(model_screening, has_the_word = "PPV_screening")
@@ -247,13 +251,13 @@ source("analysis/1.data_preparation_for_analysis.R")
   
     # report::report(model_screening)
 
-    sjPlot::plot_model(model_screening, type = "pred", terms = c("brochure", "age")) + theme_minimal()
-    # sjPlot::plot_model(model_screening, type = "pred", terms = c("disease", "age", "brochure")) + theme_minimal()
-    sjPlot::plot_model(model_screening, type = "pred", terms = c("ind_apriori [all]", "age", "brochure")) + theme_minimal()
-    sjPlot::plot_model(model_screening, type = "pred", terms = c("PPV_screening [all]", "age", "brochure")) + theme_minimal()
+    sjPlot::plot_model(model_screening, type = "pred", terms = c("brochure", "normative_PPV")) + theme_minimal()
+    # sjPlot::plot_model(model_screening, type = "pred", terms = c("disease", "normative_PPV", "brochure")) + theme_minimal()
+    sjPlot::plot_model(model_screening, type = "pred", terms = c("ind_apriori [all]", "normative_PPV", "brochure")) + theme_minimal()
+    sjPlot::plot_model(model_screening, type = "pred", terms = c("PPV_screening [all]", "normative_PPV", "brochure")) + theme_minimal()
     
   
-    emmeans::emmeans(model_screening, list(pairwise ~ brochure * age), adjust = "tukey")
+    emmeans::emmeans(model_screening, list(pairwise ~ brochure * normative_PPV), adjust = "tukey")
     
     
     # __FIGURE 4 ----------------
@@ -300,7 +304,7 @@ source("analysis/1.data_preparation_for_analysis.R")
   # https://docs.google.com/document/d/1GD_9pg9tRnJMX29UAVTsWOlxNa-azNqY5-chI8FjrL8/edit?pli=1#heading=h.iiao2pk10h9z
     
     model_fu = glmer(RECOMEND_followup ~ 
-                       brochure * age +
+                       brochure * normative_PPV +
                        
                        disease +
                        n_item +
@@ -326,7 +330,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     sjPlot::plot_model(model_fu) + theme_minimal()
     
     report_result(model_fu, variable_name = "brochure (standard - pictorial)")
-    report_result(model_fu, variable_name = "age (40 - 20)")
+    report_result(model_fu, variable_name = "normative_PPV (high - low)")
     report_result(model_fu, variable_name = "disease (Breast cancer - Down syndrome)")
     report_result(model_fu, has_the_word = "RECOMEND_screening_AFTER")
     
@@ -341,7 +345,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     
     # Same as model_fu (above)
     model_fu_reasons_baseline =  glmer(RECOMEND_followup ~ 
-                                           brochure * age + 
+                                           brochure * normative_PPV + 
                                            
                                            disease +
                                            n_item +
@@ -368,7 +372,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     # ___2.COMP_Screening ------------------------------------------------------
     
     model_fu_reasons_screening = glmer(RECOMEND_followup ~ 
-                                         brochure * age + 
+                                         brochure * normative_PPV + 
                                          
                                          disease +
                                          n_item +
@@ -396,7 +400,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     # ___3.COMP_Condition ------------------------------------------------------
     
     model_fu_reasons_condition = glmer(RECOMEND_followup ~ 
-                                         brochure * age +
+                                         brochure * normative_PPV +
                                          
                                          disease +
                                          n_item +
@@ -426,7 +430,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     # ___4.COMP_FollowUp ------------------------------------------------------
     
     model_fu_reasons_fu = glmer(RECOMEND_followup ~ 
-                                  brochure * age +
+                                  brochure * normative_PPV +
                                   
                                   disease +
                                   n_item +
@@ -457,7 +461,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     # ___5.COMP_Screening+COMP_Condition ------------------------------------------------------
     
     model_fu_reasons_screening_condition = glmer(RECOMEND_followup ~ 
-                                                   brochure * age +
+                                                   brochure * normative_PPV +
                                                    
                                                    disease +
                                                    n_item +
@@ -488,7 +492,7 @@ source("analysis/1.data_preparation_for_analysis.R")
     # ____Complete model ------------------------------------------------------
     
     model_fu_reasons_complete = glmer(RECOMEND_followup ~ 
-                                        brochure * age +
+                                        brochure * normative_PPV +
                                         
                                         disease +
                                         n_item +

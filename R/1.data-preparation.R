@@ -6,7 +6,7 @@
 library('dplyr')
 library('readr')
 library('tidyr')
-library('corrplot')
+# library('corrplot')
 
 
 # Read data and create dictionary -----------------------------------------
@@ -109,12 +109,13 @@ library('corrplot')
       select(-condition)
 
   
-    # Screening - Enough info EXPLANATION--------------
-      
-      df %>% 
-        select(ResponseId, matches("ENO_4_TEXT"), -starts_with("t_")) %>% 
-        gather(condition, ENOUGH_screening_TEXT, 2:5) %>% 
-        drop_na(ENOUGH_screening_TEXT) 
+    # * Screening - Enough info EXPLANATION--------------
+    df %>%
+      select(ResponseId, matches("ENO_4_TEXT"), -starts_with("t_")) %>%
+      gather(condition, ENOUGH_screening_TEXT, 2:5) %>%
+      drop_na(ENOUGH_screening_TEXT) %>% 
+      pull(ENOUGH_screening_TEXT)
+
   
     
 # Follow Up ---------------------------------------------------------------
@@ -161,6 +162,7 @@ library('corrplot')
     mutate(FACTORS_followup = as.numeric(FACTORS_followup)) %>% 
     spread(FACTORS_FU_Item, FACTORS_followup, sep = "_")
   
+  
 # CONTROL Q ---------------------------------------------------------------
 
   df_CONTROL_raw = df %>% 
@@ -201,7 +203,8 @@ library('corrplot')
                item == "FAL" & disease == "Down syndrome" & age == "40" & response == "0,4%" ~ 1,
                item != "FAL" ~ NA_real_,
                TRUE ~ 0)) %>% 
-    mutate(CONTROL_PPV = 
+    mutate(
+      CONTROL_PPV = 
              case_when(
                item == "PPV" ~ as.numeric(response),
                TRUE ~ NA_real_))
@@ -313,8 +316,8 @@ library('corrplot')
     
 # Save files --------------------------------------------------------------
 
-  write_csv(df_ALL, "output/DF_all.csv")
-  write_rds(df_ALL, "output/DF_all.rds")
+  write_csv(df_ALL, "output/data/DF_all.csv")
+  write_rds(df_ALL, "output/data/DF_all.rds")
   
   # DT::datatable(df_ALL)
   
@@ -325,8 +328,8 @@ library('corrplot')
 source("R/2.data-preparation-ind-diff.R")  
   
   
-  df_ALL = read_rds("output/DF_all.rds")
-  df_ALL_inddiff = read_rds("output/DF_all_inddiff.rds")
+  df_ALL = read_rds("output/data/DF_all.rds")
+  df_ALL_inddiff = read_rds("output/data/DF_all_inddiff.rds")
   
   df_JOINED = df_ALL %>% left_join(df_ALL_inddiff, by = "ResponseId") %>% 
     mutate(ResponseId = as.factor(ResponseId)) %>% 
@@ -357,6 +360,6 @@ source("R/2.data-preparation-ind-diff.R")
                  presencePrevalence == "NOPREV" ~ "No"
                )))  
   
-  write_csv(df_JOINED, "output/df_JOINED.csv")
-  write_rds(df_JOINED, "output/df_JOINED.rds")
+  write_csv(df_JOINED, "output/data/df_JOINED.csv")
+  write_rds(df_JOINED, "output/data/df_JOINED.rds")
   

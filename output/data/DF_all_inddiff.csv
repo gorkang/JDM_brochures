@@ -1,0 +1,201 @@
+ResponseId,dem_gen,dem_age_1,dem_edu,dem_lan,dem_nationality,dem_edu_n,ind_emotionseverity_abortion,ind_emotionseverity_mastectomy,ind_emotionseverity_misscarriag,ind_emotionseverity_premastecto,ind_apriori,ind_screening_trust,ind_screening_disconf,ind_agreeableness,ind_prevexp1_similarproblems,ind_prevexp1_prenataltest,ind_prevexp1_downsyndrome,ind_prevexp1_misscarriage,ind_prevexp1_abortion,ind_prevexp1_mammogram,ind_prevexp1_breastcancer,ind_prevexp1_mastectomy,ind_prevexp2_breastcancer,ind_prevexp2_downsyndrome,ind_prevexp2_mammogram,ind_prevexp2_prenatalscreen,ind_prevalence_BC_20,ind_prevalence_BC_40,ind_prevalence_DS_20,ind_prevalence_DS_40
+R_d70NuO1N8Gsjhjr,Female,26,Bachelor's or Equivalent level,English,United States of America,6,1.75,7,7,6.25,0,80,30,4.666666666666667,0,0,0,0,0,0,0,0,1,1,1,1,2e-4,0.01,0.01,0.1
+R_3NCWHWF0PcQ20Ke,Female,28,Bachelor's or Equivalent level,English,United States of America,6,0.75,7,7,2.25,100,100,0,4.444444444444445,0,0,0,0,0,0,0,0,1,1,1,1,1e-4,0.002,0.001,0.00125
+R_1H1CcREWNsTJoRw,Female,26,Bachelor's or Equivalent level,English,United States of America,6,5,4.5,5.75,3.5,57.8,80,31,4.333333333333333,12,10,0,0,0,0,0,12,1,1,1,1,0.02,0.04,0.013333333333333334,0.025
+R_5bYXC0gfBijzRcd,Female,35,Upper Secondary Education,English,United States of America,3,4.25,7,7,5.25,65,85,50,3.6666666666666665,0,0,0,0,0,100,0,0,2,1,4,1,2.5e-4,5e-4,0.005,0.001
+R_2ATmR3ho8F5qI4e,Female,28,Bachelor's or Equivalent level,English,United States of America,6,5.75,6.25,7,4,68.8,61,79,4.555555555555555,10,10,53,54,1,1,1,1,2,3,1,3,0.1,0.2,0.01,0.1
+R_2rMTON8ukBwQ0b7,Female,27,Bachelor's or Equivalent level,English,United States of America,6,3.5,5.5,6.5,2.25,38,78,19,5,0,0,20,0,31,0,0,0,1,2,3,1,0.01,0.03333333333333333,0.001,0.05
+R_1LUL3AAWYPimdYN,Female,32,Master's or Equivalent level,English,United States of America,7,7,4,6,2,45,75,15,3.6666666666666665,25,1,8,9,0,3,2,4,2,1,4,1,0.001,0.03333333333333333,0.002,0.01
+R_2ToxUZN6BhcMyek,Female,27,Bachelor's or Equivalent level,English,United States of America,6,6,6,6,6,63.2,79,80,3.888888888888889,9,5,3,5,5,6,6,4,1,1,1,1,0.02,0.02,0.0011111111111111111,0.0011111111111111111
+R_1FCzydCcZHIvAum,Female,21,Bachelor's or Equivalent level,English,United States of America,6,4.75,6.75,7,4.5,99.6,96,83,4.222222222222222,0,0,0,0,0,0,0,0,1,1,1,1,0.0025,0.02,2.5e-4,0.04
+R_3L7q8ZFCwmrRicO,Female,31,Post-Secondary Non-Tertiary Education,English,United States of America,4,5,6,6,5,84.8,75,72,4.333333333333333,65,71,52,20,19,54,68,38,3,1,4,3,0.0033333333333333335,0.02,0.0011111111111111111,0.0025
+R_b2sBHl2TWFA9xRL,Female,21,Lower Secondary Education,English,United States of America,2,0,7,7,4,90,100,50,2,0,0,0,0,0,0,0,0,1,1,1,1,0.005,0.02,0.0011111111111111111,0.0011111111111111111
+R_2hRVYTEnY10es01,Female,28,Short-Cycle Tertiary Education,English,United States of America,5,3,6.5,6,3,73,80,75,3.111111111111111,0,0,0,20,20,0,0,0,1,1,3,3,5e-4,8.333333333333334e-4,8.333333333333334e-4,0.0025
+R_3F5aWLe4AMsAqng,Female,24,Bachelor's or Equivalent level,English,United States of America,6,6.25,7,7,7,70.2,75,64,4.222222222222222,0,0,0,0,0,0,0,0,1,1,1,1,1e-4,0.001,1e-5,0.6666666666666666
+R_2D8HJWav5WgtO4x,Female,54,Bachelor's or Equivalent level,English,United States of America,6,7,7,6.75,5.5,29.8,81,82,4,90,6,8,93,1,94,7,8,3,1,4,1,5e-4,0.0011111111111111111,0.001,0.001
+R_2E5oeLThCkYwjIZ,Female,33,Master's or Equivalent level,English,United States of America,7,2.75,7,6,5,86,43,72,3.888888888888889,0,0,0,0,0,67,14,48,3,1,3,3,2e-4,0.02,2e-4,0.002
+R_1QFA7R1tOZCDw31,Female,33,Short-Cycle Tertiary Education,English,United States of America,5,0,6.75,5.25,1.25,65.8,71,50,4.666666666666667,0,0,0,0,0,0,0,0,2,1,2,1,0.001,0.00125,0.0011111111111111111,0.0033333333333333335
+R_3jD5A6cmUCYRiEh,Female,56,Bachelor's or Equivalent level,English,United States of America,6,6,6.5,5.5,5.5,55,80,71,4.111111111111111,1,52,1,8,24,14,10,2,3,1,3,4,0.00575,0.0046,0.00575,0.05
+R_1lz5Mc0d9xlzKTz,Female,46,Short-Cycle Tertiary Education,English,United States of America,5,5.25,5.5,6.75,5,88.6,70,50,4.555555555555555,40,50,1,1,0,100,10,0,2,1,4,1,0.002,0.02,0.0011111111111111111,0.01
+R_3RgxO8QqYpQbrvC,Female,31,Master's or Equivalent level,English,United States of America,7,4.25,6.5,7,4.25,62.2,70,80,2,20,0,10,0,0,30,0,0,2,2,3,2,1e-5,0.01,2e-6,1e-5
+R_DGmUwk2muEIM0j7,Female,28,Post-Secondary Non-Tertiary Education,English,United States of America,4,5.5,6.5,6.25,5,61,78,61,4.444444444444445,0,0,0,0,0,18,0,0,1,1,4,1,2.5e-4,3.333333333333333e-4,5e-4,0.016666666666666666
+R_pAjhMU65AetYbLz,Female,40,Master's or Equivalent level,English,United States of America,7,2,6.5,3.5,6,26.2,45,40,3,0,0,68,0,0,0,0,0,2,2,2,2,0.0025,0.0025,0.001,0.016666666666666666
+R_1CvSC7WZbvUg66G,Female,34,Bachelor's or Equivalent level,English,United States of America,6,6.25,7,6.75,5,84,85,15,4.777777777777778,0,0,0,40,0,0,0,0,2,1,1,1,1e-4,0.004,0.01,0.001
+R_1ClrzhNzLCr9Dyk,Female,27,Bachelor's or Equivalent level,English,United States of America,6,6,6,1.75,5,29.4,10,100,4,0,0,0,0,0,0,0,0,1,1,1,1,2.5e-4,3.333333333333333e-4,2.5e-4,1e-4
+R_3JI7dv751Rf5mT8,Female,33,Bachelor's or Equivalent level,English,United States of America,6,5.25,6.75,5.75,4.75,95.6,95,65,2.7777777777777777,0,0,25,0,0,7,26,4,2,2,3,2,1e-4,5e-5,1e-6,2.5e-6
+R_3CTpYSPVXIFxQUb,Female,54,Bachelor's or Equivalent level,English,United States of America,6,5.75,6.5,6.75,4.5,89.8,85,75,4.555555555555555,60,90,0,100,0,100,0,100,3,2,4,4,0.01,0.01,0.004,0.04
+R_3kHUjxxkaXCEknl,Female,25,Bachelor's or Equivalent level,English,United States of America,6,3.5,5.25,5.25,5,65.2,79,57,3.111111111111111,21,14,9,9,22,11,8,14,1,1,1,1,0.001,0.0033333333333333335,2.5e-4,0.002
+R_2co0GlIk8HRxwrj,Female,30,Post-Secondary Non-Tertiary Education,English,United States of America,4,4.25,5.25,5.25,4.5,79.4,100,40,4.444444444444445,100,0,0,0,0,90,0,0,3,1,3,1,0.01,0.02,0.004,0.01
+R_3RwRpKsdPsvy0rl,Female,28,Short-Cycle Tertiary Education,English,United States of America,5,6.25,6.25,6,5,41.6,81,40,3.888888888888889,0,0,0,0,0,0,0,0,2,1,3,2,1e-4,0.005,0.0025,0.04
+R_DnK1m22YhDijbSV,Female,34,Bachelor's or Equivalent level,English,United States of America,6,0.75,6.25,6.5,4.25,96,91,30,5,23,0,12,1,1,52,13,1,2,2,3,2,1e-4,2e-4,5e-5,6.666666666666667e-5
+R_324M92p3v6CA2OF,Female,40,Upper Secondary Education,English,United States of America,3,1.75,7,6.25,3.5,40.2,75,62,4.333333333333333,14,3,0,0,87,0,0,0,2,1,2,2,2.5e-4,0.002,0.002,0.016666666666666666
+R_Qgfrc7P2YQi6aEp,Female,36,Master's or Equivalent level,English,United States of America,7,5.5,6.75,6,4.75,55,80,70,3.5555555555555554,40,0,0,0,0,0,50,0,3,1,2,1,0.001,0.02,0.0011111111111111111,0.01
+R_2q7xO6Uil16R0aZ,Female,37,Bachelor's or Equivalent level,English,United States of America,6,4.5,7,7,6,51,61,61,4.333333333333333,9,0,0,0,0,100,0,0,1,1,4,1,0.002,0.02,0.002,0.05
+R_2cbVoyHnCd3GMsR,Female,28,Primary education,English,United States of America,1,4.75,6.25,7,4,71.8,97,45,4.222222222222222,59,82,4,0,0,0,39,32,3,2,3,4,0.0011111111111111111,0.02,0.0011111111111111111,0.0011111111111111111
+R_vZWjeY23f3D91KN,Female,29,Upper Secondary Education,English,United States of America,3,5.25,7,7,5.25,57.4,81,9,4.777777777777778,0,0,0,0,0,100,0,0,1,1,4,1,2e-4,0.001,1e-4,0.001
+R_1CBmoDw5VmkULO8,Female,31,Bachelor's or Equivalent level,English,United States of America,6,6,6.5,7,4.25,50.8,85,29,4.555555555555555,0,90,0,0,0,0,0,0,1,1,1,4,2.5e-4,0.01,0.001,0.016666666666666666
+R_1KfkA6Aa05bWDKu,Female,23,Bachelor's or Equivalent level,English,United States of America,6,4,4.25,3,4.5,86,91,23,2.888888888888889,81,91,76,88,100,15,28,26,1,3,2,3,0.05,0.1,0.01,0.125
+R_1ruIMT4jUvhVVk6,Female,42,Primary education,English,United States of America,1,7,7,7,7,24,60,70,5,0,0,0,71,0,0,16,15,2,1,1,1,0.01,0.15,0.01,0.016666666666666666
+R_3P7TKXQNtkRDrBy,Female,44,Bachelor's or Equivalent level,English,United States of America,6,6.25,5.25,6,4.75,68,90,30,3.7777777777777777,3,64,1,73,0,0,3,0,2,1,2,4,0.001,0.005,1e-4,1.3333333333333334e-4
+R_1if9JcBsqlsbMg4,Female,28,Bachelor's or Equivalent level,English,United States of America,6,6,5.75,7,0,90,100,77,4.222222222222222,100,0,52,100,0,0,100,0,3,2,3,1,0.002,0.1,0.001,0.04
+R_9p0MKuxw2rBOBsB,Female,39,Bachelor's or Equivalent level,English,United States of America,6,3.25,7,7,3,73.4,75,80,4.666666666666667,100,100,30,0,100,0,100,0,1,2,1,4,1e-5,0.001,1e-5,0.01
+R_2ZK6b2KC4zXsc6a,Female,35,Upper Secondary Education,English,United States of America,3,3.25,5.5,6,3.25,67.8,50,70,3.6666666666666665,4,4,0,90,0,69,0,0,1,1,3,1,4e-5,0.12,5e-4,0.6
+R_1hAOu3rdmyT5oHP,Female,55,Upper Secondary Education,English,United States of America,3,7,7,7,6,84.2,100,30,5,100,100,0,100,100,0,0,0,3,1,3,4,0.001,0.05,1e-4,0.01
+R_3qgqmBcINufGxYQ,Female,32,Bachelor's or Equivalent level,English,United States of America,6,1.75,6.5,7,5,79.4,93,31,4,64,0,0,0,0,87,0,0,1,1,4,1,0.002,0.02,0.0011111111111111111,0.005
+R_pozkRgcSu9mZoBP,Female,33,Upper Secondary Education,English,United States of America,3,5,6.75,5.5,5.25,15.6,61,34,4.888888888888889,41,1,0,0,0,0,38,31,3,1,2,2,1e-4,6.666666666666666e-4,1e-5,0.001
+R_xmHgvbX0SfB7LVv,Female,31,Master's or Equivalent level,English,Viet Nam,7,3.5,7,7,7,95.2,91,96,3.5555555555555554,0,0,0,0,0,0,0,0,1,1,1,1,0.01,0.05,0.01,0.05
+R_XiGJSX83BjPkEjT,Female,45,Master's or Equivalent level,English,United States of America,7,6.5,7,6.75,7,100,100,100,5,1,1,0,1,1,100,0,0,1,1,4,1,4e-5,2e-4,2e-5,0.001
+R_3oXiUMRWyhTN1x6,Female,32,Bachelor's or Equivalent level,English,United States of America,6,5,6,6,6,65.6,79,52,4.444444444444445,49,60,15,91,1,54,1,1,2,2,4,4,0.0025,0.01,2.5e-4,0.01
+R_12stafIYM0qh5YU,Female,31,Bachelor's or Equivalent level,English,United States of America,6,5.75,5.25,7,4.25,58,50,40,4,0,0,0,0,0,0,0,0,3,1,3,1,0.05,0.02,0.0011111111111111111,0.0011111111111111111
+R_1Dp8clZhqjEMAhP,Female,51,Post-Secondary Non-Tertiary Education,English,United States of America,4,7,7,7,6.75,29,90,80,4.111111111111111,3,0,0,78,0,87,0,0,2,1,4,4,2.5e-4,0.014492753623188406,0.001,0.016666666666666666
+R_2QtXkuAwnuBUfwL,Female,36,Bachelor's or Equivalent level,English,United States of America,6,1.5,7,6.5,5.5,96.4,83,32,3.888888888888889,4,2,1,1,1,1,10,1,2,1,3,1,0.0011111111111111111,0.02,0.0011111111111111111,0.02
+R_3CCKywJzlTHZIDP,Female,32,Post-Secondary Non-Tertiary Education,English,United States of America,4,0.25,4.5,6,1.25,48.6,75,87,3.3333333333333335,49,91,19,74,9,0,0,0,1,2,3,4,1e-4,0.02,0.001,0.002
+R_SUEDFnrpjQqdMf7,Female,28,Master's or Equivalent level,English,United States of America,7,3.25,6.75,7,1.75,90,90,50,3.2222222222222223,0,0,0,0,0,0,0,0,3,1,3,1,2.5e-4,0.025,8.333333333333334e-4,0.016666666666666666
+R_2wtx0X6PJgRBHml,Female,58,Upper Secondary Education,English,United States of America,3,6.5,7,7,5.5,90,80,60,4.777777777777778,0,0,0,0,0,100,0,0,1,1,4,1,0.001,0.02,0.0011111111111111111,0.01
+R_3rU5adeeqHm7yg3,Female,28,Bachelor's or Equivalent level,English,United States of America,6,5.25,4.25,6.75,5.5,94.2,50,30,4.444444444444445,1,1,1,1,1,1,1,1,2,1,3,1,0.001,0.001,1e-7,0.001
+R_42SgUP2JK9muLuh,Female,44,Post-Secondary Non-Tertiary Education,English,United States of America,4,6,6.75,7,4.5,86,80,10,4.444444444444445,0,0,0,0,0,0,0,0,2,2,3,3,0.01,0.05,0.01,0.03
+R_6R06xrJUEZo2bmh,Female,35,Post-Secondary Non-Tertiary Education,English,United States of America,4,7,7,7,7,94,90,95,5,3,70,0,0,0,98,0,0,1,1,4,1,0.0025,0.02,0.0011111111111111111,0.0125
+R_2CIAAKbKcMtJ6aW,Female,32,Upper Secondary Education,English,United States of America,3,5,2.5,6,2,31.4,34,30,3.2222222222222223,15,15,9,10,9,8,9,11,1,NA,4,1,0.02,0.1,0.001,0.125
+R_23fdQMKvCz08siQ,Female,63,Bachelor's or Equivalent level,English,United States of America,6,5,7,7,7,45.2,70,87,4.444444444444445,1,1,72,1,100,100,1,1,2,3,4,1,1e-6,0.001,2e-6,0.001
+R_3sufAjBIXFHZ7UP,Female,66,Bachelor's or Equivalent level,English,United States of America,6,6.5,7,6,6.25,96,93,81,5,100,9,9,100,2,100,100,100,4,2,4,2,0.0025,0.0033333333333333335,1e-4,5e-4
+R_2QuLtkvdtdUs5L1,Female,21,Upper Secondary Education,English,United States of America,3,1.25,5.75,6.75,5,42,20,89,4.111111111111111,11,10,7,6,5,7,6,4,1,1,2,2,2.5e-4,2.5e-4,0.005,0.016666666666666666
+R_Qi9U3O1wKjZq157,Female,32,Post-Secondary Non-Tertiary Education,English,United States of America,4,3.5,6.75,6.25,3.25,47.8,41,51,3.111111111111111,0,0,0,0,15,0,0,0,1,1,3,3,0.016666666666666666,0.05,0.01,0.045454545454545456
+R_1FEbaUX4bSEFDZg,Female,29,Lower Secondary Education,English,United States of America,2,7,7,7,7,78.6,97,5,3.5555555555555554,18,70,1,10,80,0,0,10,1,1,1,4,0.003,0.02,0.01,0.025
+R_2SwdXN6JvRajTZm,Female,54,Upper Secondary Education,English,United States of America,3,5.75,6.5,6.5,5.5,30.2,39,61,4.555555555555555,0,0,0,0,0,71,0,0,1,1,4,1,0.005,0.02,0.0011111111111111111,0.005
+R_231e1mOCJYlmnc6,Female,64,Upper Secondary Education,English,United States of America,3,2.5,7,6.5,7,12.6,50,30,3.6666666666666665,1,0,0,1,2,8,0,0,2,1,4,1,5e-5,0.04,0.12,0.23
+R_2QtyGR9gcdZzaSB,Female,46,Master's or Equivalent level,English,United States of America,7,1.25,7,5.75,0.75,92.8,90,30,3.7777777777777777,0,0,0,1,16,93,0,0,1,1,4,1,0.01,0.07,1e-4,0.03
+R_2Y9tJIf5gdvL1H5,Female,35,Bachelor's or Equivalent level,English,United States of America,6,7,7,6.5,3.75,42,80,50,4.777777777777778,0,0,0,70,0,0,0,0,2,2,3,3,2.5e-4,0.002,2.5e-4,0.016666666666666666
+R_27wLCxHMYDf72Z4,Female,59,Master's or Equivalent level,English,NA,7,2.5,7,7,5,81.6,80,50,3.7777777777777777,0,0,0,0,0,0,71,0,3,1,2,1,0.01,0.02,0.0011111111111111111,0.005
+R_1FD1Cu3LXvHRWZF,Female,30,Bachelor's or Equivalent level,English,United States of America,6,5,4.75,5.5,4.75,66.8,69,90,3.3333333333333335,39,55,68,60,50,61,71,66,3,1,1,1,1e-4,0.04,0.05,0.002
+R_2CiSf09hPh9D6Y6,Female,27,Post-Secondary Non-Tertiary Education,English,United States of America,4,0.75,7,4.25,6.25,76,73,32,2.7777777777777777,4,2,1,0,71,24,19,0,2,1,3,1,5.555555555555556e-4,0.0125,6.666666666666666e-4,0.013333333333333334
+R_2QYZugV1oSBtl25,Female,41,Bachelor's or Equivalent level,English,United States of America,6,6.25,6.75,5.25,6.5,73.2,71,77,2.5555555555555554,6,6,0,0,0,100,9,1,3,1,4,2,0.001,0.002,0.0011111111111111111,0.01
+R_1kSMS3rCmzYgUR8,Female,22,Bachelor's or Equivalent level,English,United States of America,6,1.75,6.25,6.5,2,83.2,95,50,4,0,0,50,0,0,0,20,0,2,2,1,1,2.5e-4,0.0025,2e-4,0.002
+R_3stfVMyfgkRNA7J,Female,35,Bachelor's or Equivalent level,English,United States of America,6,7,6.25,6.25,4.5,22,60,30,5,0,0,0,0,0,0,0,0,1,1,1,1,0.001,0.01,0.001,0.01
+R_T5efVJx178CSEAp,Female,30,Short-Cycle Tertiary Education,English,United States of America,5,6,6,4.25,6.25,79,62,100,2.6666666666666665,17,78,0,4,46,40,16,34,3,2,2,4,0.02,0.005,0.002,0.01
+R_8p4mMgAQ5YiVXdT,Female,44,Post-Secondary Non-Tertiary Education,English,United States of America,4,6,5.5,7,0.5,84.4,82,20,2.5555555555555554,0,0,0,0,0,87,87,0,2,1,3,1,1.4285714285714285e-5,5e-4,0.002,2e-4
+R_1K8dDunbU3zJwQu,Female,34,Master's or Equivalent level,English,United States of America,7,5.5,5.75,6.25,4.25,51,65,70,3.6666666666666665,40,21,1,100,0,0,80,0,3,2,3,4,0.002,0.01,0.01,0.02
+R_3MSvLN7KGS1EbeD,Female,40,Bachelor's or Equivalent level,English,United States of America,6,4.75,7,7,5,0,81,71,2.7777777777777777,71,100,61,100,0,0,0,0,1,2,1,4,0.001,0.001,1e-4,0.01
+R_2QtudrmB9yoZkTy,Female,28,Upper Secondary Education,English,United States of America,3,4,6.75,5.5,5.75,94.4,82,50,4.777777777777778,0,0,0,0,0,0,0,0,1,1,1,1,0.005,0.02,0.0011111111111111111,0.01
+R_1Kpcqh9V52Qf4eV,Female,25,Bachelor's or Equivalent level,English,United States of America,6,5.5,5.5,5.25,5,80.2,57,74,2.4444444444444446,32,45,44,41,41,53,58,49,1,NA,4,4,0.15,0.4,0.6,0.5
+R_vIkUrPdNSOVIDo5,Female,29,Primary education,English,United States of America,1,1.75,6.5,7,1.75,86.6,81,61,2.3333333333333335,0,0,0,0,0,0,0,0,1,1,3,2,2.5e-4,0.0025,0.001,0.016666666666666666
+R_2CZXkHfuKFM6wA9,Female,18,Post-Secondary Non-Tertiary Education,English,United States of America,4,0,0,0,0,1,1,1,5,1,1,1,1,1,1,1,1,1,1,1,1,0.01,0.001,0.001,0.001
+R_XhqrRkHosbIU2Mp,Female,29,Short-Cycle Tertiary Education,English,United States of America,5,5,2.5,3.25,5.25,67,50,100,3.3333333333333335,4,4,3,4,0,76,0,0,3,1,4,1,2.5e-4,2.5e-4,1.6666666666666666e-4,0.016666666666666666
+R_DIRI22Y3JlgiURr,Female,30,Master's or Equivalent level,English,United States of America,7,3.5,5.5,7,2.5,54.2,90,50,3,20,36,4,0,24,21,0,0,1,2,2,4,0.01,0.05,0.01,0.2
+R_1jqT2gKGjuvrwtt,Female,40,Upper Secondary Education,English,United States of America,3,3.25,7,6.25,4,35,51,81,3.888888888888889,0,0,0,0,50,0,0,0,1,1,1,1,2.5e-4,0.001,0.016666666666666666,0.016666666666666666
+R_10re62Xj6u0KkCk,Female,34,Short-Cycle Tertiary Education,English,United States of America,5,4.5,6.5,6.5,4,95.8,96,8,3.111111111111111,4,81,10,1,0,0,0,0,2,1,1,4,0.001,0.02,0.002,0.01
+R_XTj6L1UsLS5TKxj,Female,33,Upper Secondary Education,English,United States of America,3,7,6,7,5,49.8,80,81,3.888888888888889,0,0,0,0,0,0,0,0,3,1,3,3,0.1,0.125,6.666666666666666e-4,0.0014285714285714286
+R_1FlDYrDKMkBNbyj,Female,26,Bachelor's or Equivalent level,English,United States of America,6,3.5,3,3.25,3.5,46.4,60,39,2.6666666666666665,30,47,9,10,10,11,11,10,2,1,2,2,2.5e-4,5e-4,1e-4,2e-4
+R_BV6ykTLn55XmVyx,Female,61,Bachelor's or Equivalent level,English,United States of America,6,4.25,7,7,6,8,60,30,5,25,100,25,0,0,100,0,0,3,1,4,4,0.02,0.014492753623188406,0.0011111111111111111,0.01
+R_20PfaooFd7mTRI1,Female,34,Bachelor's or Equivalent level,English,United States of America,6,7,7,7,4.25,68.8,87,30,3.6666666666666665,8,8,0,0,0,11,0,0,2,1,2,4,1.1111111111111112e-4,0.01,0.0014285714285714286,0.0022222222222222222
+R_D17p42u85D1XSZH,Female,58,Bachelor's or Equivalent level,English,United States of America,6,5,7,6.5,4.25,36.6,60,58,3.2222222222222223,24,0,0,0,0,100,0,0,3,1,4,3,0.0033333333333333335,0.02,0.0011111111111111111,0.02857142857142857
+R_24qMO5F870GUguz,Female,57,Post-Secondary Non-Tertiary Education,English,United States of America,4,7,7,7,7,4,0,50,4.666666666666667,0,0,0,0,0,100,0,1,3,2,4,2,0.001,0.01,0,0.001
+R_3Pucwk78Nqzrxao,Female,31,Upper Secondary Education,English,United States of America,3,6,6,6.5,5,61.2,90,40,4.666666666666667,0,0,0,0,0,0,27,0,2,1,3,2,0.05,0.25,0.05,0.4
+R_bNusUkhks4j9fQB,Female,30,Upper Secondary Education,English,United States of America,3,7,6.5,6.25,6,90,90,70,4.777777777777778,0,0,0,0,0,0,0,0,1,1,1,1,0.02,0.02,0.0011111111111111111,0.0011111111111111111
+R_PRO2ok3rbPTKaul,Female,67,Bachelor's or Equivalent level,English,United States of America,6,4,7,7,5.5,67,81,3,5,0,0,0,0,0,100,0,0,1,1,4,1,0.01,0.03,2e-4,6e-4
+R_3JKn58qEnyMXnSD,Female,34,Bachelor's or Equivalent level,English,United States of America,6,4.5,5.75,5.75,5.75,76.8,78,47,4,66,72,57,51,39,44,41,39,1,1,3,4,0.01,0.02,0.0011111111111111111,0.002
+R_1DIGkmeToCoyudL,Female,65,Post-Secondary Non-Tertiary Education,English,United States of America,4,5.5,4.25,6,5.5,13.6,30,60,2.6666666666666665,71,8,28,5,3,100,96,5,3,3,4,2,0.01,0.02,0.0011111111111111111,0.0022222222222222222
+R_3oQFA6ITfCMRlgH,Female,40,Bachelor's or Equivalent level,English,United States of America,6,5,5.5,5,5.5,71.6,73,84,3.111111111111111,70,75,61,51,71,60,76,60,4,2,3,3,30,25,500,50
+R_2wuxLuKCzTm658i,Female,42,Post-Secondary Non-Tertiary Education,English,United States of America,4,2.75,6.5,7,3.75,28,60,5,2.111111111111111,0,0,0,0,0,0,0,0,1,1,2,1,5e-4,0.02,1e-4,1.6666666666666666e-4
+R_3hrrR1t66lAaBqQ,Female,36,Bachelor's or Equivalent level,English,United States of America,6,2,4.25,6,1.25,53,85,95,2.7777777777777777,0,0,0,0,0,0,0,0,1,1,1,1,3.3333333333333335e-5,5e-5,2e-5,1e-4
+R_3NyvHHUM3GuZAwZ,Female,30,Bachelor's or Equivalent level,English,United States of America,6,3.75,7,7,3,96.2,100,76,4.888888888888889,0,0,0,0,0,54,0,0,1,1,3,4,0.0011111111111111111,0.01,3.333333333333333e-4,0.001
+R_31NwawIXBF9rww2,Female,36,Bachelor's or Equivalent level,English,United States of America,6,3.5,3.5,3.75,4.25,63.8,69,48,3.888888888888889,49,66,44,43,79,94,74,64,1,1,3,3,0.002,0.002,0.001,5e-4
+R_cMGlz3VZehoX3MJ,Female,28,Upper Secondary Education,English,United States of America,3,0,1,3.5,0,99,80,30,2.888888888888889,0,0,0,0,0,0,0,0,1,1,1,1,0.02,0.02,0.005,0.01
+R_4NjeFVesZtlqBfb,Female,54,Bachelor's or Equivalent level,English,United States of America,6,4,3.75,6.25,2.5,67,70,45,4.111111111111111,13,0,0,20,100,100,80,20,2,1,4,3,5e-6,6.666666666666667e-5,1e-4,2.5e-4
+R_3FRIfcpe7AwjaOO,Female,23,Bachelor's or Equivalent level,English,United States of America,6,0.5,6,5.75,0.25,86.6,91,39,4,20,1,1,1,21,1,28,0,2,2,2,2,0.01,0.02,0.02,0.2
+R_6Peu9kmp7kmdNIZ,Female,37,Bachelor's or Equivalent level,English,United States of America,6,4.5,5.5,5.5,4.25,80,81,10,4.888888888888889,30,82,69,11,90,10,12,11,1,NA,3,4,0.0011111111111111111,0.001,8.333333333333334e-4,0.0014285714285714286
+R_21haDGi00YXbBAj,Female,71,Upper Secondary Education,English,United States of America,3,6.25,5.75,7,4,91.6,90,70,4.444444444444445,100,0,0,1,0,100,100,20,4,1,4,1,0.01,0.01098901098901099,0.001,0.011111111111111112
+R_71ff5vjOP2pOhUd,Female,32,Bachelor's or Equivalent level,English,United States of America,6,4.75,6.5,6.5,5,66,87,71,4.222222222222222,7,100,0,0,0,0,0,0,2,1,3,4,0.001,0.001,2e-4,0.002
+R_1rPPlNUIyfiNzkv,Female,63,Not elsewhere classified,English,United States of America,999,4.25,6.5,7,4.5,88,90,50,5,1,0,0,0,0,100,0,0,2,1,4,1,5e-5,0.002,1e-4,0.01
+R_2sQHzZ7weUvnG5B,Female,34,Bachelor's or Equivalent level,English,United States of America,6,4.5,6.25,7,5.75,62,85,30,3.4444444444444446,0,0,0,0,0,20,0,0,1,1,3,1,0.002,0.02,0.0011111111111111111,0.0022222222222222222
+R_2TBk1SFpomPIHTk,Female,29,Post-Secondary Non-Tertiary Education,English,United States of America,4,6,7,7,7,92,100,40,3.7777777777777777,0,0,0,0,0,0,0,0,1,1,1,1,2.5e-4,5e-4,0.008333333333333333,0.016666666666666666
+R_3hm8xkBmmb6c9Ih,Female,52,Short-Cycle Tertiary Education,English,United States of America,5,3,6.75,7,5,96,91,4,4.777777777777778,0,0,0,0,59,100,0,0,3,2,4,4,0.001,0.15,0.001,0.1
+R_301qCQGeC6gaJfC,Female,31,Post-Secondary Non-Tertiary Education,English,United States of America,4,3.5,6,5.75,4.75,98,71,61,4.444444444444445,0,0,30,100,0,0,0,0,2,1,2,3,0.01,0.2,0.0011111111111111111,0.01
+R_baucVOnNYtMgr6x,Female,41,Primary education,English,United States of America,1,7,7,7,6.25,37,75,51,3.888888888888889,0,0,0,0,0,0,39,0,2,1,2,1,1e-4,0.001,1e-6,0.001
+R_1GZ98lOEa4xOYbB,Female,47,Bachelor's or Equivalent level,English,United States of America,6,3.25,6.5,5.25,4.5,62.6,80,71,4.888888888888889,0,0,0,86,0,87,0,0,1,1,4,1,0.02,0.1,0.01,0.03
+R_3EWLAghI9T4b1o2,Female,24,Bachelor's or Equivalent level,English,United States of America,6,7,6,5,7,94.8,81,71,5,0,0,1,1,0,0,0,0,1,1,1,1,0.001,0.0033333333333333335,0.001,0.01
+R_1FtYWyB9wniwZDh,Female,31,Post-Secondary Non-Tertiary Education,English,United States of America,4,6.5,6.75,6.75,4,65,74,73,3.3333333333333335,76,6,14,45,0,30,5,0,2,1,2,2,3.333333333333333e-4,5e-4,5e-4,3.333333333333333e-4
+R_27amOYf3pTemK9E,Female,34,Not elsewhere classified,English,United States of America,999,4.25,6.5,6.25,4,45.2,63,54,3.6666666666666665,5,1,72,0,77,0,3,0,1,2,2,4,2.5e-4,0.001,1e-4,0.016666666666666666
+R_uwFne47piCR8uvn,Female,46,Bachelor's or Equivalent level,English,United States of America,6,7,7,7,7,18,30,100,3.3333333333333335,100,0,0,100,0,100,0,0,3,1,4,1,0.001,0.02,0.0011111111111111111,0.02
+R_siMkuQTlEZj2uc1,Female,34,Bachelor's or Equivalent level,English,United States of America,6,6.5,7,5.25,5,72,88,71,3.6666666666666665,1,21,0,51,0,0,7,0,3,1,3,4,0.02,0.02,0.0011111111111111111,0.0011111111111111111
+R_3j1yyVWVPGI4iUh,Female,72,Master's or Equivalent level,English,United States of America,7,2.5,5.5,7,4.25,94.6,81,51,3.888888888888889,0,0,0,0,0,100,0,0,1,1,4,1,3.333333333333333e-4,0.01,1.6666666666666666e-4,1.6666666666666666e-4
+R_3jfEJpk9gN2L1Vz,Female,25,Upper Secondary Education,English,United States of America,3,4,4,7,3,69.6,72,75,3.7777777777777777,31,0,0,0,0,0,0,0,3,1,1,1,2.5e-4,0.016666666666666666,2.5e-4,0.016666666666666666
+R_3HFzhKZtY1LqMyT,Female,47,Post-Secondary Non-Tertiary Education,English,NA,4,7,5,7,3.5,52,50,60,3,100,50,20,100,0,20,50,0,2,2,3,4,0.001,0.005,1.6666666666666666e-4,0.016666666666666666
+R_2ylUVFIRWQKCXjS,Female,57,Bachelor's or Equivalent level,English,United States of America,6,3.5,5.25,5.5,4,70.2,71,46,4.777777777777778,21,5,3,98,2,97,3,2,2,1,4,1,0.002,0.0125,1e-4,0.002
+R_XteVwjSI437gjex,Female,53,Bachelor's or Equivalent level,English,United States of America,6,7,7,7,5.75,68,90,70,5,0,80,0,0,0,0,0,0,3,2,2,4,0.001,0.02,0.0011111111111111111,0.0025
+R_BAk0i9qZNK3Lwd3,Female,47,Bachelor's or Equivalent level,English,United States of America,6,5.5,5.75,4.5,6.5,72.6,76,60,4.444444444444445,0,0,0,0,0,20,0,0,1,1,4,1,2.5e-4,0.02,1e-4,0.02
+R_1jvREPnGFmgTGlR,Female,36,Master's or Equivalent level,English,United States of America,7,5,6.5,7,6.25,84.6,78,70,4.666666666666667,12,8,0,100,0,0,0,0,3,1,2,1,0.02,0.02,0.0011111111111111111,0.0011111111111111111
+R_1KxqXiGem9dwSUz,Female,25,Short-Cycle Tertiary Education,English,United States of America,5,1.5,7,7,7,69.2,100,81,3.7777777777777777,100,100,24,3,26,100,100,100,3,2,3,3,8.333333333333334e-4,0.0025,0.001,0.0025
+R_AjnsLveBAVjhKDL,Female,34,Bachelor's or Equivalent level,English,United States of America,6,3.5,4.25,6,3.5,74,80,20,2.7777777777777777,58,11,4,99,21,8,33,4,2,1,3,1,2.5e-4,0.016666666666666666,0.0033333333333333335,0.016666666666666666
+R_1M0pJqSXK58P43J,Female,38,Bachelor's or Equivalent level,English,United States of America,6,4.5,5.75,5.75,2.75,60,70,10,4,0,0,0,0,0,0,0,0,2,1,3,1,2.5e-4,0.001,1e-4,0.016666666666666666
+R_bkgBmExgOudeYq5,Female,50,Bachelor's or Equivalent level,English,United States of America,6,3.25,6,7,3.25,83.4,83,25,4,20,100,15,0,50,100,29,0,3,2,4,4,0.05,0.16,0.01,0.03
+R_rrrWeyX2WVApYQ1,Female,24,Lower Secondary Education,English,United States of America,2,7,7,7,5,61.6,69,90,4.666666666666667,26,0,0,0,0,56,0,0,2,1,2,1,1e-4,0.006,2e-4,0.003
+R_3PnoH0lMXPVRr5r,Female,61,Upper Secondary Education,English,NA,3,3.75,6.75,7,5.5,32.6,56,18,4.111111111111111,11,4,0,0,0,89,0,0,1,1,4,1,1.6666666666666667e-5,0.02,0.0011111111111111111,0.002
+R_27OmFqrULAIcZ6C,Female,26,Bachelor's or Equivalent level,English,United States of America,6,4,5,6,1,80.6,80,72,4.111111111111111,5,4,1,3,50,14,1,0,1,1,3,1,0.001,0.02,0.0011111111111111111,0.0011111111111111111
+R_3GjtXilTNuVwe8I,Female,55,Upper Secondary Education,English,United States of America,3,6,6.5,7,4,74,71,49,4.888888888888889,0,0,0,100,0,0,0,0,3,1,3,4,0.01,0.1,0.01,0.1
+R_SJDgsqWMQO9xJPb,Female,29,Upper Secondary Education,English,United States of America,3,4.5,6.25,7,3.5,78.4,74,28,4.555555555555555,0,0,0,0,0,0,0,0,1,1,1,1,0.002,0.01,0.01,0.02
+R_3EfHPxjBdEks7oP,Female,36,Bachelor's or Equivalent level,English,United States of America,6,7,5.5,6.5,4.25,87.4,97,9,4.888888888888889,0,100,0,1,0,0,0,0,3,2,3,4,0.1,0.2,0.0125,0.2
+R_1jVOq3kc6NKNh9t,Female,32,Bachelor's or Equivalent level,English,United States of America,6,5,5.25,5.5,4,50.2,65,36,4.666666666666667,20,68,9,96,51,1,33,1,2,2,2,4,0.05,0.2,0.01,0.26
+R_DjgKFWQlONrikxj,Female,44,Post-Secondary Non-Tertiary Education,English,United States of America,4,5,6.75,6.25,5.75,93.2,70,30,2.6666666666666665,0,0,0,4,0,29,0,0,3,1,4,1,0.002,0.02,0.0011111111111111111,0.02
+R_1f6LJFBp7KEIhPq,Female,31,Post-Secondary Non-Tertiary Education,English,United States of America,4,0,5.5,6.5,0,76.2,91,66,4,47,1,68,91,0,0,0,0,2,2,2,2,5e-4,0.01,0.001,0.01
+R_3dVOYSrgtvnjHYl,Female,48,Bachelor's or Equivalent level,English,United States of America,6,6.25,7,7,4.75,37.4,40,81,4.555555555555555,100,0,0,100,0,100,100,100,4,1,4,1,0.001,0.01,0.001,0.002
+R_2duMBnB9vz8tpgw,Female,48,Lower Secondary Education,English,United States of America,2,6.5,5.25,6.75,7,59,70,90,5,10,0,0,0,0,100,100,0,1,1,4,4,0.02,0.02,0.0011111111111111111,0.0044444444444444444
+R_11cPljUnn0ECrNH,Female,51,Short-Cycle Tertiary Education,English,United States of America,5,2,6,2.25,6,46,46,36,3,95,94,0,0,95,100,100,0,3,3,4,4,0.01,0.01,0.001,0.011111111111111112
+R_tY8ESyGAatHL6xP,Female,38,Post-Secondary Non-Tertiary Education,English,United States of America,4,6,7,7,7,67.8,91,81,3.6666666666666665,5,16,2,74,0,1,1,1,2,2,2,4,0.01,0.05,0.05,0.1
+R_2sS8vnjmXxwpg0e,Female,48,Bachelor's or Equivalent level,English,United States of America,6,4,5.75,4.75,5,71,80,50,4.777777777777778,0,30,0,0,0,100,0,0,1,2,4,4,5e-5,0.001,1e-4,0.0125
+R_2qz7sVLNqGX31XS,Female,30,Short-Cycle Tertiary Education,English,United States of America,5,4.75,7,7,5,78.2,50,50,3.2222222222222223,50,20,75,90,0,80,90,30,3,2,3,2,5.555555555555556e-4,0.004347826086956522,0.001,0.01
+R_1BXE8IMtJpJWtZY,Female,41,Master's or Equivalent level,English,United States of America,7,7,6.75,6.75,4.25,91,91,54,3.7777777777777777,1,1,1,1,1,82,45,1,3,2,4,4,5e-5,1e-4,1e-4,5e-4
+R_1qaM7GUy0LftRRP,Female,27,Bachelor's or Equivalent level,English,United States of America,6,5.75,7,7,5,38.6,86,58,3,0,0,0,0,0,0,0,0,1,1,1,1,0.002,0.02,0.0011111111111111111,0.002
+R_1IL6HCtCJ7hB4Mu,Female,44,Bachelor's or Equivalent level,English,Canada,6,3.25,6.25,7,2.75,68.4,71,71,4.111111111111111,16,41,5,5,4,88,9,9,2,2,4,4,0.001,0.005,1e-4,0.01
+R_3qPX36pC5MsLSoE,Female,47,Short-Cycle Tertiary Education,English,United States of America,5,7,7,7,5,79,96,60,3,50,0,100,100,100,100,100,50,3,3,4,3,2.5e-4,0.0025,5e-5,0.016666666666666666
+R_3HodquVKu702Dqq,Female,38,Short-Cycle Tertiary Education,English,United States of America,5,7,7,7,7,78,85,50,4.222222222222222,50,50,0,0,0,0,0,0,3,1,1,4,0.01,0.02,0.001,0.002
+R_2rIWDTdrP7pEncW,Female,29,Post-Secondary Non-Tertiary Education,English,United States of America,4,0.75,3.5,2.25,0.5,46,74,77,4.555555555555555,24,14,20,40,1,11,7,0,2,2,2,3,2.5e-4,2.5e-4,0.016666666666666666,0.03333333333333333
+R_3pfFM0WuuGzaO3x,Female,22,Post-Secondary Non-Tertiary Education,English,United States of America,4,3.25,2.5,5.5,2,29,80,80,2.3333333333333335,5,0,0,0,0,0,5,5,2,1,3,1,1.25e-4,2e-4,2e-5,1e-4
+R_3oXz4J2XrgG2Nyc,Female,32,Master's or Equivalent level,English,United States of America,7,5,7,7,5,66.6,70,9,3.7777777777777777,1,1,1,1,1,1,1,1,2,2,3,3,0.01,0.05,0.006666666666666667,0.01
+R_1rqwCc4yxpuwIaz,Female,41,Doctoral or Equivalent level,English,United Kingdom of Great Britain and Northern Ireland,8,3.75,6.5,6.25,6.25,51.4,81,60,3,100,0,0,0,0,100,100,72,4,1,4,1,1e-5,2.5e-5,1e-5,0.001
+R_2uwvvifwOsE2w58,Female,27,Upper Secondary Education,English,United States of America,3,6,4.75,4.75,3.75,32,50,75,4.333333333333333,0,0,0,100,0,0,0,0,2,1,3,3,0.0011111111111111111,0.02,0.0011111111111111111,0.1
+R_11bdyiKFu7e0ChC,Female,35,Bachelor's or Equivalent level,English,United States of America,6,3.5,7,7,5.25,30,50,39,3.888888888888889,20,0,10,0,10,0,0,0,3,2,3,3,2e-6,0.001,2e-5,5e-4
+R_8dmDrDUH2ScB7mp,Female,32,Master's or Equivalent level,English,United States of America,7,4.75,6.5,6,5.75,83,75,40,4.666666666666667,0,0,0,0,0,0,0,0,1,1,1,1,5e-4,0.001,2e-4,4e-4
+R_3QLEalrW0wn7Uj9,Female,32,Bachelor's or Equivalent level,English,United States of America,6,4.5,4.75,6.5,4,82,85,49,3.2222222222222223,60,60,1,100,0,60,25,1,2,1,3,4,5e-4,0.002,0.001,0.015
+R_2zcgmQCPbS9NE2n,Female,55,Upper Secondary Education,English,United States of America,3,6.5,5.75,6.5,5.75,66.2,29,80,5,10,5,1,1,1,10,1,1,2,1,4,2,2.5e-4,2.5e-4,2.5e-4,0.1
+R_1fadb3RyLYRbBkf,Female,26,Post-Secondary Non-Tertiary Education,English,United States of America,4,2,6.75,4.5,3,66,67,60,4.444444444444445,0,0,42,0,0,0,42,42,3,2,3,3,0.4,0.6,0.35,0.4
+R_1jUoQaJiVtusz6j,Female,55,Upper Secondary Education,English,United States of America,3,3.75,4,4,3.25,51.4,60,60,3.111111111111111,1,1,1,1,1,62,14,14,3,1,3,3,0.001,0.02,2e-4,0.01
+R_2TYwIMSlvxLjT1g,Female,38,Post-Secondary Non-Tertiary Education,English,United States of America,4,3.5,7,7,5.5,39,50,60,4.777777777777778,30,0,0,0,0,40,90,0,2,2,3,3,1e-4,1.25e-4,1e-4,0.016666666666666666
+R_231BGDDXKnxpjKJ,Female,56,Post-Secondary Non-Tertiary Education,English,United States of America,4,4.75,7,6.25,5.75,64,76,82,4.222222222222222,19,50,0,0,0,86,0,0,2,1,4,4,5e-4,0.001,2.5e-4,0.001
+R_2ByxeYzhgugBlDQ,Female,38,Lower Secondary Education,English,United States of America,2,2.5,5.75,4.5,3,63.8,81,19,3,50,3,3,91,62,77,9,1,3,2,3,3,0.0011111111111111111,0.02,0.0011111111111111111,0.02
+R_3JLquKKrOeW4825,Female,30,Bachelor's or Equivalent level,English,United States of America,6,7,6,6.25,5,47.2,53,54,3,6,9,6,0,0,80,8,4,1,1,4,4,1e-5,1e-4,1e-5,1e-4
+R_XpoUeLNqDaJXj6F,Female,21,Upper Secondary Education,English,United States of America,3,6,6.25,7,5,30.2,65,35,3.5555555555555554,39,1,25,18,0,70,15,0,3,2,4,2,2.5e-4,6.666666666666666e-4,5e-4,0.016666666666666666
+R_10HMEvt8AtFM3po,Female,57,Short-Cycle Tertiary Education,English,United States of America,5,1,6,5,5,89.6,81,50,4,29,0,0,0,71,71,0,0,2,2,4,4,0.001,0.013333333333333334,0.001,0.0033333333333333335
+R_3EFIL3PrjGRr38l,Female,34,Bachelor's or Equivalent level,Other,United States of America,6,4.5,5.75,6,2.75,87.2,86,38,4.444444444444445,11,12,6,8,6,8,6,9,1,1,1,1,1e-4,0.01,0.001,0.01
+R_1mjYKXcbR7BV3JD,Female,29,Upper Secondary Education,English,United States of America,3,4.75,6.25,6,4.5,0,1,71,2.5555555555555554,39,90,1,100,0,0,0,0,1,1,1,4,1e-5,0.005,1e-4,0.001
+R_1mRvLSBtb5huGyD,Female,36,Bachelor's or Equivalent level,English,United States of America,6,4.25,6.5,5.25,3.5,48.2,71,81,3.5555555555555554,20,51,100,49,0,0,17,0,1,2,2,4,5e-4,0.00125,0.0011111111111111111,0.25
+R_3JegBfegRZ7tl0u,Female,35,Bachelor's or Equivalent level,English,United States of America,6,4,6.25,6.75,2.75,25.8,40,50,4.555555555555555,30,61,3,0,62,1,0,0,1,2,1,4,0.002,0.3,0.001,0.01
+R_302cuMh2VmctEAb,Female,65,Bachelor's or Equivalent level,English,United States of America,6,7,7,6.5,6,6.8,9,60,4.111111111111111,0,0,0,0,0,68,0,0,1,1,4,1,0.001,0.05,0.002,0.01
+R_1rMHbsrSFZUfPJv,Female,25,Bachelor's or Equivalent level,English,United States of America,6,4.75,6.25,7,5.25,86,71,81,4.222222222222222,0,0,0,0,0,72,0,0,1,1,3,1,0.01,0.15,0.02,0.022222222222222223
+R_ulSsqP2Yfi6D4vD,Female,40,Upper Secondary Education,English,United States of America,3,5,5.5,6,4.5,19.6,55,66,3.7777777777777777,10,31,0,0,0,54,25,24,2,1,4,4,2.5e-4,0.1,0.001,0.02
+R_2ykmu0RxDlXkGrr,Female,38,Post-Secondary Non-Tertiary Education,English,United States of America,4,3.5,4.5,5.5,4.5,68.4,69,61,4,11,10,9,67,2,10,3,0,1,1,1,1,2.5e-4,0.016666666666666666,1.6666666666666666e-4,0.016666666666666666
+R_2bZssqS97gXsGtK,Female,25,Bachelor's or Equivalent level,English,United States of America,6,7,7,6,7,62.4,62,63,4,0,0,1,1,1,0,1,1,1,1,1,1,0.002,0.02,0.0011111111111111111,0.01
+R_5j2lL8sig9AFj0Z,Female,26,Bachelor's or Equivalent level,English,United States of America,6,4,5.75,6.25,3.25,42.2,55,71,4.222222222222222,57,34,31,100,100,67,39,14,3,2,4,3,2.5e-4,3.333333333333333e-4,0.001,0.00125
+R_1NbpDJ8WJDQTeAc,Female,44,Upper Secondary Education,English,United States of America,3,6,6,6.5,3.25,74.2,81,86,4.555555555555555,30,19,0,100,0,100,0,0,3,1,4,2,3.333333333333333e-4,0.002,0.001,0.0033333333333333335
+R_2UbaHXBvtqRiu7n,Female,31,Bachelor's or Equivalent level,English,United States of America,6,7,5.5,6.5,3,60.2,78,66,4.222222222222222,65,84,6,91,12,10,4,1,3,2,3,4,1e-4,0.01,1e-4,0.0025
+R_vce0zQGIkekgTDj,Female,30,Bachelor's or Equivalent level,English,Guyana,6,4.75,7,7,0.5,70,70,80,4.555555555555555,0,0,0,0,0,0,0,0,1,1,1,1,0.05,0.3,0.01,0.5
+R_xr4kkPVbjyMkCyJ,Female,28,Upper Secondary Education,English,United States of America,3,1,5.25,6.5,1,53.2,70,18,4.222222222222222,45,69,1,86,1,1,1,1,1,1,1,4,0.02,0.05,0.1,0.15
+R_us1ha27PYGYVvUt,Female,37,Post-Secondary Non-Tertiary Education,English,United States of America,4,6.25,6.5,7,4.5,80,85,85,2.3333333333333335,0,0,0,0,50,0,0,0,2,1,3,1,0.001,0.02,0.001,0.002
+R_3g0nVaIGvWPlEsO,Female,38,Bachelor's or Equivalent level,English,United States of America,6,4,7,7,2.25,34,50,70,3.888888888888889,0,0,0,0,0,0,0,0,1,1,1,1,4e-6,2e-5,1e-5,1e-5
+R_Xug9d1oN6LwE31T,Female,24,Post-Secondary Non-Tertiary Education,English,United States of America,4,1.5,7,6.75,2,11.4,40,82,4,0,0,0,0,0,0,0,0,1,3,1,1,2e-5,0.002,2e-6,1e-5
+R_O1M4057jZv0v4id,Female,29,Bachelor's or Equivalent level,English,United States of America,6,6.5,7,7,6.25,84,85,25,4.888888888888889,0,0,0,0,0,0,0,0,3,1,3,2,2.5e-4,5e-4,1.6666666666666666e-4,0.016666666666666666
+R_BwSgDC8oIOUojrb,Female,46,Master's or Equivalent level,English,United States of America,7,7,4.5,7,6,76,71,90,3.7777777777777777,51,7,3,100,0,100,1,1,1,1,4,4,0.001,0.002,2e-4,0.002
+R_1ltPDF4eOKOw8vo,Female,26,Upper Secondary Education,English,United States of America,3,3.5,4,2,4,48.2,40,35,3.5555555555555554,4,9,7,8,9,5,6,8,2,1,3,2,2e-4,5e-4,0.001,0.001
+R_1g0wJVt11hCpTLZ,Female,26,Upper Secondary Education,English,United States of America,3,4.25,4,5.75,6.25,59.6,75,51,3.5555555555555554,1,1,1,0,0,0,0,0,1,1,1,1,2.5e-4,5e-4,2.5e-4,0.01
+R_3MRsUOP8q9e0rM4,Female,43,Lower Secondary Education,English,United States of America,2,5,7,7,3,51,90,50,4.111111111111111,20,60,0,100,0,0,100,100,3,1,3,4,2.5e-4,0.005,2.5e-4,0.001
+R_W3v0mlzzCiohZ2V,Female,39,Bachelor's or Equivalent level,English,United States of America,6,7,6.5,7,7,96.2,91,29,4.555555555555555,59,0,0,100,0,0,100,0,3,1,3,4,0.01,0.02,0.0011111111111111111,0.05
+R_SNuVHhZNgr1CC3f,Female,32,Master's or Equivalent level,English,United States of America,7,4.25,3.5,5.25,5.75,94.2,70,69,4.444444444444445,0,0,0,0,0,0,0,0,1,1,1,1,2.5e-4,0.002,8.333333333333334e-4,0.0025
+R_0rfN4fxsGpOPd5f,Female,30,Bachelor's or Equivalent level,English,United States of America,6,4.75,5,5,4.25,78.8,85,5,4.444444444444445,20,50,0,20,0,0,0,0,1,1,3,4,1e-5,1e-4,2e-4,0.001
+R_3CI5tqnpaWAyERb,Female,24,Bachelor's or Equivalent level,English,United States of America,6,1.5,6.25,5.5,2.75,52.8,86,0,4.666666666666667,0,0,0,0,0,0,0,0,3,1,3,1,2.5e-4,5e-4,2e-4,0.016666666666666666
+R_3Eb6kdhw9edF2t0,Female,43,Post-Secondary Non-Tertiary Education,English,United States of America,4,2.75,5.5,6.5,2.25,62,75,50,5,20,100,0,0,100,70,50,0,2,1,4,4,0.002,0.02,0.0011111111111111111,0.0011111111111111111
+R_3irFRJGrQ1WnRMo,Female,32,Bachelor's or Equivalent level,English,United States of America,6,5,7,7,7,65,85,40,4.444444444444445,0,0,0,0,0,70,0,0,1,1,4,3,1e-4,0.001,1e-5,0.001
+R_2Xj3ybA9Cxr2RCi,Female,27,Master's or Equivalent level,English,United States of America,7,5.5,7,7,5,89,91,71,3.888888888888889,0,0,0,90,51,0,0,0,1,1,1,1,0.001,0.002,1e-4,0.005
+R_1C8EPt0GEA3zORq,Female,24,Post-Secondary Non-Tertiary Education,English,United States of America,4,7,6.25,6.5,7,100,100,100,2.888888888888889,70,71,71,91,68,75,65,72,1,2,2,3,0.006666666666666667,5e-4,0.0011111111111111111,0.0025
+R_2PbqQIdFTL3sy4E,Female,28,Post-Secondary Non-Tertiary Education,English,United States of America,4,5.25,7,7,7,89.2,100,100,3.3333333333333335,0,0,0,0,0,0,0,0,1,1,1,1,0.05,0.1,0.01,0.01
+R_3DqARzvIVCnVk0y,Female,23,Primary education,English,United States of America,1,5.75,6.75,4.75,6.25,52.8,70,50,4.333333333333333,0,0,0,0,0,0,0,0,1,1,1,1,0.01,0.06,0.01,0.03
+R_1FKsiBMv76VVSeL,Female,40,Bachelor's or Equivalent level,English,United States of America,6,4.25,6,7,4.75,86,95,40,5,0,0,0,0,0,100,10,0,2,1,4,1,1e-4,0.01,1e-5,1e-5
+R_2SxG8SFRAhpPbKI,Female,55,Post-Secondary Non-Tertiary Education,English,United States of America,4,0,0,0,1.5,91.8,72,77,3.3333333333333335,7,30,15,2,2,84,0,0,2,2,4,4,0.002,0.016666666666666666,2e-4,0.016666666666666666

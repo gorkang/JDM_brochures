@@ -1,7 +1,6 @@
 # This script is called from "R/1.data-preparation.R". DO NOT run independently
 # source("1.data-preparation.R")
 
-
 # Demographic -------------------------------------------------------------
 
   # hist(as.numeric(df$`Duration (in seconds)`))
@@ -153,31 +152,30 @@
   
 
 # CHECK previous experience measures --------------------------------------
-
+  # library(ggplot2)
+  
   x1 = df_ALL_inddiff %>% select(matches("prevexp1"))
   x2 = df_ALL_inddiff %>% select(matches("prevexp2")) 
-  x1 %>% 
-    gather(item, score, 1:8) %>% 
-    ggplot(aes(item, score)) +
-    geom_jitter(width = .1) +
-    geom_boxplot(alpha = .2) +
-    theme_minimal() +
-    coord_flip()
+  # x1 %>% 
+  #   gather(item, score, 1:8) %>% 
+  #   ggplot(aes(item, score)) +
+  #   geom_jitter(width = .1) +
+  #   geom_boxplot(alpha = .2) +
+  #   theme_minimal() +
+  #   coord_flip()
   
-  x2 %>% 
-    gather(item, score, 1:4) %>% 
-    ggplot(aes(item, score)) +
-    geom_jitter(width = .1) +
-    theme_minimal()
+  # x2 %>% 
+  #   gather(item, score, 1:4) %>% 
+  #   ggplot(aes(item, score)) +
+  #   geom_jitter(width = .1) +
+  #   theme_minimal()
   
   summary(x1)
   summary(x2)
-  corrplot::corrplot(cor(x1, x2, use = "complete.obs"), method = "number")
+  # corrplot::corrplot(cor(x1, x2, use = "complete.obs"), method = "number")
       
 # Save files --------------------------------------------------------------
 
-  write_csv(df_ALL_inddiff, "output/DF_all_inddiff.csv")
-  write_rds(df_ALL_inddiff, "output/DF_all_inddiff.rds")
-
-  # DT::datatable(df_ALL_inddiff)
+  write_csv(df_ALL_inddiff, "output/data/DF_all_inddiff.csv")
+  write_rds(df_ALL_inddiff, "output/data/DF_all_inddiff.rds")
   

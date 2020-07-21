@@ -3,7 +3,7 @@
 
   # https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/
   # renv::init() # Initialize a project
-  renv::snapshot() # Create snapshot of packages
+  # renv::snapshot() # Create snapshot of packages
 
 # If you are trying to run the scripts here for the first time:
 

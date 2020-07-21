@@ -71,7 +71,7 @@ try_all_optimizers <- function(model, maxfun_value = 2e5) {
         ERRORS = model@optinfo$conv$lme4$messages
         
         if(is.null(ERRORS)) {
-          message("    - decreasing stopping tolerances WORKED!")
+          message("    - decreasing stopping tolerances worked!")
           model
         } else {
           message("\n\n    *** Life is full of sadness and despair... ***\n\n")
@@ -82,45 +82,23 @@ try_all_optimizers <- function(model, maxfun_value = 2e5) {
 
 
 
-# Mixes models result report -------------------------------------------------
+# Mixed models result report -------------------------------------------------
 report_result <- function(model, variable_name = "", has_the_word = "") {
   
   # DEBUG
   # model = model_screening
   # variable_name = "brochure (OLD - NEW)"
-  
-  # model = global_simplified_model_ppv_error
-  # has_the_word = ""
-  # variable_name = "brochure (OLD - NEW)"
-  # variable_name = "brochure (OLD - NEW):age (40 - 20)"
-  
-  # variable_name = ""
-  # has_the_word = "ind_agreeableness"
-  # has_the_word = "disease"
-  
-  # model = model_old
-  # has_the_word = "age"
-  # variable_name = ""
-  
-  # model = global_simplified_model_ppv_error
-  # has_the_word = "ind_apriori"
-  # variable_name = ""
-  
-  # model = model_old
-  # has_the_word = "ind_apriori"
-  # variable_name = ""
-  
-  
+
   
   not_significant = ""
   DF_parameters_temp = parameters::parameters(model) %>% as_tibble()
   names_to_round = names(DF_parameters_temp %>% select(-Parameter, -p))
   
-  # Si es glmer, exponenciamos los coeficientes, tal y como hacen en sjPlot::tab_model()
+  # If it is a glmer model, exponentiate coefficients, as in sjPlot::tab_model()
   if (grepl("glmer", model@call[1])) DF_parameters_temp = DF_parameters_temp %>% mutate_at(c("Coefficient", "CI_low", "CI_high"), exp)  
   
-  # Redondeamos a 3 decimales
-  DF_parameters = DF_parameters_temp %>% mutate_at(vars(names_to_round), list(~ round(., 3)))
+  # Round to 3 decimals
+  DF_parameters = DF_parameters_temp %>% mutate_at(vars(all_of(names_to_round)), list(~ round(., 3)))
   
   
   
@@ -134,10 +112,17 @@ report_result <- function(model, variable_name = "", has_the_word = "") {
     if (is_interaction == TRUE) {
       group_by_var = stringr::word(variable_name, 1)  
       group_by_var2 = stringr::word(gsub(".*:(.*)", "\\1", variable_name), 1)  
-      # group_by_var = paste0(group_by_var, ", ", group_by_var2)
+      
+      # CHECK variables are there
+      if((group_by_var %in% names(DF_data) & group_by_var2 %in% names(DF_data)) == FALSE) message("At least one of the variables in 'variable_name' does not exist. Should be one of: \n- ", paste(DF_parameters %>% pull(Parameter), collapse = "\n- "))
+      
     } else {
       group_by_var = stringr::word(variable_name, 1)
       group_by_var2 = NULL
+      
+      # CHECK variables are there
+      if(group_by_var %in% names(DF_data) == FALSE) message("At least one of the variables in 'variable_name' does not exist. Should be one of: \n- ", paste(DF_parameters %>% pull(Parameter), collapse = "\n- "))
+      
     }
     
   } else {
@@ -152,13 +137,14 @@ report_result <- function(model, variable_name = "", has_the_word = "") {
 
   if (summary_var %in% names_factors_DF_data) {
     # If summary_var is a factor, COUNT
-
+    
     DF_counts_raw = 
-      DF_data %>%
-      count_(c(group_by_var, group_by_var2, summary_var)) %>% 
-      rename(VAR = 1, 
-             N = n) 
-      
+        DF_data %>%
+        # count_(c(group_by_var, group_by_var2, summary_var)) %>% # Deprecated
+        count(!!as.symbol(paste0(group_by_var, "")), !!sym(paste0(group_by_var2, "")), !!sym(paste0(summary_var, ""))) %>% #paste0(x, "") to convert NULL to char
+        rename(VAR = 1, 
+               N = n)   
+    
     DF_counts = DF_counts_raw %>% 
       left_join(DF_counts_raw %>% group_by(VAR) %>% summarise(SUM = sum(N)),  by = "VAR") %>% 
       unite("VAR",  VAR:summary_var)
@@ -166,7 +152,7 @@ report_result <- function(model, variable_name = "", has_the_word = "") {
   } else {
   
     DF_means = DF_data %>% 
-      group_by_at(vars(group_by_var, group_by_var2)) %>% 
+      group_by_at(vars(all_of(group_by_var), all_of(group_by_var2))) %>% 
       summarize(MEAN =  mean(!!sym(summary_var)),
                 SD = sd(!!sym(summary_var))) %>% 
       ungroup() %>% 
@@ -177,12 +163,7 @@ report_result <- function(model, variable_name = "", has_the_word = "") {
     
   }
 
-  
-  
-  # global_simplified_model_ppv_error@frame[["age"]]
-  # global_simplified_model_ppv_error
-  # summary(global_simplified_model_ppv_error)
-  
+
   if(variable_name != "") {
     DF_variable = DF_parameters %>% filter(Parameter == variable_name)  
   } else if (has_the_word != "") {
@@ -197,17 +178,16 @@ report_result <- function(model, variable_name = "", has_the_word = "") {
   message(paste0("The effect of ", DF_variable$Parameter ," was ", not_significant ,"significant (beta = ", DF_variable$Coefficient, ", 95% CI [", DF_variable$CI_low, ", ", DF_variable$CI_high, "], p = ", DF_variable$p, ") when predicting ", summary_var))
   
   # If IV is not a factor, do not show! 
-  # if (DF_data %>% count(!! sym(group_by_var)) %>% nrow() < 4) {
   if (!group_by_var %in% names_factors_DF_data) {
-    # Si group_by_var es una variable continua, no mostramos nada
-    message(group_by_var, " es una variable continua")
+    # If group_by_var is a continuous variable, do not show anything
+    message(group_by_var, " is a continuous variable")
     
   } else if (summary_var %in% names_factors_DF_data) {
-    # SI summary_var es un factor, damos counts
+    # If summary_var is a factor, we give counts
     message(1:nrow(DF_counts) %>% map_chr( ~ paste0(" ",  DF_counts$VAR[.x], " ", group_by_var, "/", summary_var, " (N = ", DF_counts$N[.x], ", ", DF_counts$N[.x]/ DF_counts$SUM[.x], ")\n")))
     
   } else if (group_by_var %in% names_factors_DF_data) {
-    # Si group_by_var es un factor, mostramos M (SD)
+    # If group_by_var is a factor, we show M (SD)
     message(1:nrow(DF_means) %>% map_chr( ~ paste0(" ",  DF_means$VAR[.x], " ", group_by_var, " (M = ", DF_means$MEAN[.x], ", SD = ", DF_means$SD[.x], ")\n")))
   
   }  

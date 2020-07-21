@@ -1,36 +1,25 @@
-
-# NAMES -------------------------------------------------------------------
-
-# - brochure (standard vs. pictorial)
-# - normative PPV (high vs. low)
-# - prevalence (present vs. absent)
-# - medical condition (breast cancer vs Down syndrome)
-
-
 # Environment Preparation -------------------------------------------------------------
 
 options(pillar.sigfig = 5)
-# options(scipen = 1)
 
 
 # __Packages and functions ---------------------------------------------------------------
 
-# If this is the first time you run this script, make sure you have the necessary packages
+# If this is the first time you run this script, make sure you have the necessary packages:
 # source("R/0.install-dependencies.R")
 
 library('dplyr')
 library('forcats')
-library('purrr')
 library('ggalluvial')
 library('ggridges')
 library('lme4')
 library('patchwork')
 library('performance')
 library('psych')
+library('purrr')
 library('readr')
 library('sjPlot')
 library('tidyr')
-
 
 source("R/helper-functions.R")
 
@@ -38,7 +27,7 @@ source("R/helper-functions.R")
 
 # __Data --------------------------------------------------------------------
 
-df_JOINED = read_rds("output/df_JOINED.rds") %>% 
+df_JOINED = read_rds("output/data/df_JOINED.rds") %>% 
   mutate(brochure = 
            as.factor(
              case_when(
@@ -50,7 +39,9 @@ df_JOINED = read_rds("output/df_JOINED.rds") %>%
                age == 20 ~ "low",
                age == 40 ~ "high"))
          ) %>% 
+  
   mutate(normative_PPV = forcats::fct_relevel(normative_PPV, "high", after = Inf)) %>% 
+  
   mutate(HAD_Enough_Information = 
            case_when(
              brochure == "standard" & presencePrevalence == "No" ~ "HADNT_info",
@@ -88,8 +79,8 @@ contrasts(df_JOINED$ENOUGH_screening) = named.contr.sum(levels(df_JOINED$ENOUGH_
 # ___Factors behind Follow up ---------------------------------------------------------------------------
 
 df_FACTORS = df_JOINED %>% 
-  gather(FACTORS_FU_Item, FACTORS_followup, 17:24) %>% 
-  # select(matches("FACTORS")) %>% 
+  gather(FACTORS_FU_Item, FACTORS_followup, FACTORS_FU_Item_1:FACTORS_FU_Item_8) %>%
+  # select(matches("FACTORS")) %>%
   mutate(FACTORS_FU_Item2 = 
            case_when(
              FACTORS_FU_Item == "FACTORS_FU_Item_1" ~ "1. informative_test",
@@ -103,14 +94,14 @@ df_FACTORS = df_JOINED %>%
            ))
 
 DF_PCA_RAW = df_FACTORS %>% 
-  dplyr::select(ResponseId, Item_ID, brochure, age, disease, n_item, RECOMEND_followup,  FACTORS_FU_Item2, FACTORS_followup, ind_apriori, ind_agreeableness, RECOMEND_screening_AFTER, PPV_screening, error_PPV, presencePrevalence) %>% 
+  dplyr::select(ResponseId, Item_ID, brochure, normative_PPV, disease, n_item, RECOMEND_followup,  FACTORS_FU_Item2, FACTORS_followup, ind_apriori, ind_agreeableness, RECOMEND_screening_AFTER, PPV_screening, error_PPV, presencePrevalence) %>% 
   pivot_wider(names_from = FACTORS_FU_Item2, values_from = FACTORS_followup)
 
 
 
-# _____PCA ---------------------------------------------------------------------
+# ____PCA ---------------------------------------------------------------------
 
-# Pricipal Components Analysis entering raw data and extracting PCs from the correlation matrix
+# Principal Components Analysis entering raw data and extracting PCs from the correlation matrix
 a = DF_PCA_RAW %>% select(14:21)
 fit <- princomp(a, cor = TRUE)
 # summary(fit) # print variance accounted for
@@ -120,7 +111,6 @@ fit <- princomp(a, cor = TRUE)
 
 
 # Varimax Rotated Principal Components
-  # retaining 3 components
 fit <- principal(a, nfactors = 3, rotate = "varimax")
 # fit # print results 
 DF_components = fit$scores %>% as_tibble()
