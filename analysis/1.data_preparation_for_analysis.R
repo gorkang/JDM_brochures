@@ -1,4 +1,12 @@
 
+# NAMES -------------------------------------------------------------------
+
+# - brochure (standard vs. pictorial)
+# - normative PPV (high vs. low)
+# - prevalence (present vs. absent)
+# - medical condition (breast cancer vs Down syndrome)
+
+
 # Environment Preparation -------------------------------------------------------------
 
 options(pillar.sigfig = 5)
@@ -11,6 +19,7 @@ options(pillar.sigfig = 5)
 # source("R/0.install-dependencies.R")
 
 library('dplyr')
+library('forcats')
 library('purrr')
 library('ggalluvial')
 library('ggridges')
@@ -34,7 +43,24 @@ df_JOINED = read_rds("output/df_JOINED.rds") %>%
            as.factor(
              case_when(
                brochure == "OLD" ~ "standard",
-              brochure == "NEW" ~ "pictorial")))
+               brochure == "NEW" ~ "pictorial")),
+         normative_PPV = 
+           as.factor(
+             case_when(
+               age == 20 ~ "low",
+               age == 40 ~ "high"))
+         ) %>% 
+  mutate(normative_PPV = forcats::fct_relevel(normative_PPV, "high", after = Inf)) %>% 
+  mutate(HAD_Enough_Information = 
+           case_when(
+             brochure == "standard" & presencePrevalence == "No" ~ "HADNT_info",
+             TRUE ~ "HAD_info"
+           )) %>% 
+  mutate(SAID_Enough_Information = 
+           case_when(
+             ENOUGH_screening == 1 ~ "SAID_yes",
+             TRUE ~ "SAID_no"
+           ))
 
 
 
@@ -44,12 +70,12 @@ df_JOINED = read_rds("output/df_JOINED.rds") %>%
 df_JOINED <- within(df_JOINED, brochure <- relevel(brochure, ref = "standard"))
 df_JOINED <- within(df_JOINED, timeRecommendation <- relevel(timeRecommendation, ref = "AFTER"))
 df_JOINED <- within(df_JOINED, presencePrevalence <- relevel(presencePrevalence, ref = "Yes"))
-df_JOINED <- within(df_JOINED, age <- relevel(age, ref = "40"))
+df_JOINED <- within(df_JOINED, normative_PPV <- relevel(normative_PPV, ref = "high"))
 df_JOINED <- within(df_JOINED, n_item <- relevel(n_item, ref = "2"))
 
 # Contrast coding vs dummy coding: http://www.lrdc.pitt.edu/maplelab/slides/Simple_Main_Effects_Fraundorf.pdf
 contrasts(df_JOINED$brochure) = named.contr.sum(levels(df_JOINED$brochure))
-contrasts(df_JOINED$age) = named.contr.sum(levels(df_JOINED$age))
+contrasts(df_JOINED$normative_PPV) = named.contr.sum(levels(df_JOINED$normative_PPV))
 contrasts(df_JOINED$disease) = named.contr.sum(levels(df_JOINED$disease))
 contrasts(df_JOINED$timeRecommendation) = named.contr.sum(levels(df_JOINED$timeRecommendation))
 contrasts(df_JOINED$presencePrevalence) = named.contr.sum(levels(df_JOINED$presencePrevalence))
