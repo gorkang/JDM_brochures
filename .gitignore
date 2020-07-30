@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+dev/
+*OLD/
+renv_OLD/
+renv_OLD.lock
