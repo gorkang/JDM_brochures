@@ -146,3 +146,6 @@ DF_PCA = DF_PCA_RAW %>%
 DF_PCA <- within(DF_PCA, `recommend screening` <- relevel(`recommend screening`, ref = "Yes"))
 contrasts(DF_PCA$`recommend screening`) = named.contr.sum(levels(DF_PCA$`recommend screening`))
 
+
+# Remove all variables except the ones we will need
+rm(list=setdiff(ls(), c("df_JOINED", "DF_PCA")))

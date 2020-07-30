@@ -5,6 +5,7 @@
 
   # Data preparation (avoiding packages start-up messages)
   suppressPackageStartupMessages(source("analysis/1.data_preparation_for_analysis.R"))
+  source("R/helper-functions.R")
 
 
 
@@ -553,5 +554,4 @@ df_CONTROL_0 = df_JOINED %>% filter(CONTROL_total == 0) %>% count(ResponseId)
     
     DF_anova3 = anova(model_fu_reasons_screening_condition, model_fu_reasons_complete)
     message("Adding the Follow up component does improve the model X2(", DF_anova3$`Chi Df`[2], ") = ", round(DF_anova3$Chisq[2], 3), ", p = ", DF_anova3$`Pr(>Chisq)`[2])
-
     
