@@ -9,10 +9,13 @@ options(pillar.sigfig = 5)
 # source("R/0.install-dependencies.R")
 
 library('dplyr')
+library('emmeans')
 library('forcats')
 library('ggalluvial')
 library('ggridges')
+library('gmodels')
 library('lme4')
+library('parameters')
 library('patchwork')
 library('performance')
 library('psych')
@@ -75,6 +78,23 @@ contrasts(df_JOINED$ENOUGH_screening) = named.contr.sum(levels(df_JOINED$ENOUGH_
 
 
 
+# Rename variables --------------------------------------------------------
+
+df_JOINED = df_JOINED %>% 
+  rename(
+    `normative PPV`= normative_PPV,
+    `PPV screening` = PPV_screening,
+    `error PPV` = error_PPV,
+    `medical condition` = disease,
+    `recommend screening` = RECOMEND_screening_AFTER,
+    `recommend follow up` = RECOMEND_followup,
+    item = n_item,
+    `a priori` = ind_apriori,
+    agreeableness = ind_agreeableness
+  )
+
+
+
 
 # ___Factors behind Follow up ---------------------------------------------------------------------------
 
@@ -94,7 +114,8 @@ df_FACTORS = df_JOINED %>%
            ))
 
 DF_PCA_RAW = df_FACTORS %>% 
-  dplyr::select(ResponseId, Item_ID, brochure, normative_PPV, disease, n_item, RECOMEND_followup,  FACTORS_FU_Item2, FACTORS_followup, ind_apriori, ind_agreeableness, RECOMEND_screening_AFTER, PPV_screening, error_PPV, presencePrevalence) %>% 
+  # dplyr::select(ResponseId, Item_ID, brochure, , `medical condition`, n_item, RECOMEND_followup,  FACTORS_FU_Item2, FACTORS_followup, ind_apriori, ind_agreeableness, RECOMEND_screening_AFTER, PPV_screening, error_PPV, presencePrevalence, CONTROL_total) %>%
+  dplyr::select(ResponseId, Item_ID, brochure, `normative PPV`, `medical condition`, item, `recommend follow up`,  FACTORS_FU_Item2, FACTORS_followup, `a priori`, agreeableness, `recommend screening`, `PPV screening`, `error PPV`, presencePrevalence, timeRecommendation, CONTROL_total) %>% 
   pivot_wider(names_from = FACTORS_FU_Item2, values_from = FACTORS_followup)
 
 
@@ -102,7 +123,7 @@ DF_PCA_RAW = df_FACTORS %>%
 # ____PCA ---------------------------------------------------------------------
 
 # Principal Components Analysis entering raw data and extracting PCs from the correlation matrix
-a = DF_PCA_RAW %>% select(14:21)
+a = DF_PCA_RAW %>% select(`1. informative_test`:`8. posibility_FU_problem`)
 fit <- princomp(a, cor = TRUE)
 # summary(fit) # print variance accounted for
 # loadings(fit) # pc loadings
@@ -117,6 +138,11 @@ DF_components = fit$scores %>% as_tibble()
 
 DF_PCA = DF_PCA_RAW %>% 
   bind_cols(DF_components) %>% 
-  rename(COMP_FollowUp = RC2,
-         COMP_Condition = RC1,
-         COMP_Screening = RC3)
+  rename(`Follow up component` = RC2,
+         `Condition component` = RC1,
+         `Screening component` = RC3)
+
+# Contrast coding
+DF_PCA <- within(DF_PCA, `recommend screening` <- relevel(`recommend screening`, ref = "Yes"))
+contrasts(DF_PCA$`recommend screening`) = named.contr.sum(levels(DF_PCA$`recommend screening`))
+

@@ -6,12 +6,18 @@
 library('dplyr')
 library('readr')
 library('tidyr')
-# library('corrplot')
+library('stringr')
+
+
+# Important parameters ----------------------------------------------------
+
+  # Distance from Normative PPV to consider the response accurate
+  threshold_PPV = 5
 
 
 # Read data and create dictionary -----------------------------------------
 
-  df_raw = read_csv("data/Gorka_2_201.csv") 
+  df_raw = read_csv("data/Gorka_2_201.csv") # 201 people (1 Male, 200 Females)
   df = df_raw %>% filter(dem_gen == "Female") %>% #| dem_gen == "Male"
     mutate(ResponseId = as.factor(ResponseId))
 
@@ -163,7 +169,7 @@ library('tidyr')
     spread(FACTORS_FU_Item, FACTORS_followup, sep = "_")
   
   
-# CONTROL Q ---------------------------------------------------------------
+# CONTROL QUESTIONS ---------------------------------------------------------------
 
   df_CONTROL_raw = df %>% 
     select(ResponseId, matches("CONTROL"), -starts_with("t_")) %>% 
@@ -175,45 +181,102 @@ library('tidyr')
     separate(condition, c("CONTROL", "brochure", "DIS_n", "item"), "_") %>% # Discarded 1 in PPV_1
     mutate(DIS_n = gsub("DIS", "", DIS_n))
   
+  
+  
+  
+
+# ** TEMP, Waiting for Imke to manually code it **  ---------------------------------------
+
+  DF_RESPONSES = df_CONTROL_raw %>%
+    filter(brochure == "NEW" & item == "EXP") %>% 
+    # count(ResponseId)
+    select(ResponseId, brochure, DIS_n, response) %>% 
+    # mutate(CONTROL_OK = "") %>% 
+    mutate(EXP = 
+             case_when(
+               grepl(".*increases.*", response) ~ 1,
+               grepl(".*goes up.*", response) ~ 1,
+               grepl(".*older.*|.*higher.*", response) ~ 1,
+               grepl(".*rate.*|.*increased.*", response) ~ 1,
+               grepl(".*does not.*|.*do not.*|.* no .*|.* same.*|.* none .*", response) ~ 0,
+               TRUE ~ 0#NA_real_
+             )) %>% select(-response)
+  
+  
   df_CONTROL = df_conditions %>% 
     left_join(df_CONTROL_raw,  by = c("ResponseId", "DIS_n", "brochure")) %>% 
     # filter(item == "PRE") %>% 
-    mutate(CONTROL_PRE_OK = 
+    mutate(CONTROL_OK = 
              case_when(
                #IN NOPREV "I DONT KNOW" IS OK!!???
                item == "PRE" & disease == "Breast cancer" & age == "20" & response == "1 in 4000" ~ 1,
                item == "PRE" & disease == "Breast cancer" & age == "40" & response == "1 in 50" ~ 1,
                item == "PRE" & disease == "Down syndrome" & age == "20" & response == "1 in 900" ~ 1,
                item == "PRE" & disease == "Down syndrome" & age == "40" & response == "1 in 60" ~ 1,
+               item == "PRE" & presencePrevalence == "NOPREV" & response == "It was never mentioned in the brochure" ~ 1,
                item != "PRE" ~ NA_real_,
                TRUE ~ 0)) %>% 
-    mutate(CONTROL_HIT_OK = 
+    mutate(CONTROL_OK = 
              case_when(
                item == "HIT" & disease == "Breast cancer" & age == "20" & response == "99%" ~ 1,
                item == "HIT" & disease == "Breast cancer" & age == "40" & response == "99%" ~ 1,
                item == "HIT" & disease == "Down syndrome" & age == "20" & response == "90%" ~ 1,
                item == "HIT" & disease == "Down syndrome" & age == "40" & response == "90%" ~ 1,
-               item != "HIT" ~ NA_real_,
+               item != "HIT" ~ CONTROL_OK,
                TRUE ~ 0)) %>% 
-    mutate(CONTROL_FAL_OK = 
+    mutate(CONTROL_OK = 
              case_when(
                item == "FAL" & disease == "Breast cancer" & age == "20" & response == "0,2%" ~ 1,
                item == "FAL" & disease == "Breast cancer" & age == "40" & response == "0,2%" ~ 1,
                item == "FAL" & disease == "Down syndrome" & age == "20" & response == "0,4%" ~ 1,
                item == "FAL" & disease == "Down syndrome" & age == "40" & response == "0,4%" ~ 1,
-               item != "FAL" ~ NA_real_,
+               item != "FAL" ~ CONTROL_OK,
                TRUE ~ 0)) %>% 
-    mutate(
-      CONTROL_PPV = 
+    mutate(CONTROL_PPV = 
              case_when(
                item == "PPV" ~ as.numeric(response),
-               TRUE ~ NA_real_))
+               TRUE ~ NA_real_)) %>% 
+    
+    mutate(correct_PPV = 
+             case_when(
+               age == 20 & disease == "Breast cancer" ~ 11,
+               age == 40 & disease == "Breast cancer" ~ 91,
+               age == 20 & disease == "Down syndrome" ~ 20,
+               age == 40 & disease == "Down syndrome" ~ 79.2,
+             )) %>% 
+    mutate(error_PPV = CONTROL_PPV - correct_PPV) %>% 
+    mutate(CONTROL_OK = 
+             case_when(
+               item == "PPV" & abs(error_PPV) <= threshold_PPV ~ 1,
+               item == "PPV" & abs(error_PPV) > threshold_PPV ~ 0,
+               TRUE ~ CONTROL_OK)) %>% 
+    select(-CONTROL_PPV, -correct_PPV, -error_PPV, -response) %>% 
+    pivot_wider(names_from = "item", values_from = "CONTROL_OK") %>% 
   
+    # ** REVIEW -------------------  
+    select(-EXP) %>% 
+    left_join(DF_RESPONSES, by = c("ResponseId", "brochure", "DIS_n")) %>% 
+    # -----------------------------
+  
+    rowwise() %>% 
+    mutate(CONTROL_total = 
+             case_when(
+               brochure == "OLD" ~ sum(PRE, HIT, FAL, PPV)/4,
+               brochure == "NEW" ~ sum(PRE, PPV, EXP)/3)) %>% 
+    select(ResponseId, DIS_n, CONTROL_total)
 
+  
+  ### *** REVIEW: Lots of failed control questions in NEW? -----------------------------------------------
+  
+  # df_CONTROL %>% 
+  #   count(brochure, presencePrevalence, CONTROL_total)
+  #   count(brochure, PRE,   HIT,   FAL,   PPV) #CONTROL_total
+  
   # PRE  # Prevalence
   # PPV  # How reliable
   # HIT  # Hit rate
   # FAL # FP
+  # EXP # Explanation
   
   df_CONTROL_EXP = df %>% 
     select(ResponseId, matches("CONTROL"), -starts_with("t_")) %>% 
@@ -224,7 +287,7 @@ library('tidyr')
 
 # UNCERTAINTY -------------------------------------------------------------
 
-  # CHECK: Do DIS1 and DIS2 correspond really to DIS_n? ####
+  # **** CHECK: Do DIS1 and DIS2 correspond really to DIS_n? ------------------------
   
   df_UNCERTAINTY =  df %>% 
     select(ResponseId, matches("UNCERT"), -starts_with("t_")) %>% 
@@ -245,6 +308,23 @@ library('tidyr')
     spread(3, 4) %>% 
     mutate(UNCERTAINTY_all = UNCERTAINTY_follow_up_decision + UNCERTAINTY_screening_reliability + UNCERTAINTY_test_reliability_importance)
   
+
+# Survey effort -----------------------------------------------------------
+
+  df_EFFORT = df %>% 
+    select(ResponseId, matches("Q1152|Q1153")) %>% 
+    rename(effort = Q1152, 
+           should_use = Q1153)
+  
+  # df_EFFORT %>% 
+  #   count(effort)
+  # 
+  # df_EFFORT %>% 
+  #   count(should_use)
+  # 
+  # df_EFFORT %>% 
+  #   count(should_use, effort)
+  
   
 # JOIN ALL ------------------------------------------------------------------------------------
 
@@ -257,12 +337,10 @@ library('tidyr')
       right_join(df_FOLLOW_REC, by = c("ResponseId", "DIS_n")) %>% 
       right_join(df_FOLLOW_SURE_REC, by = c("ResponseId", "DIS_n")) %>% 
       right_join(df_FOLLOW_FACTORS, by = c("ResponseId", "DIS_n")) %>% 
+      right_join(df_CONTROL, by = c("ResponseId", "DIS_n")) %>% 
       right_join(df_UNCERTAINTY, by = c("ResponseId", "DIS_n")) 
   
-    
-    
-  threshold_PPV = 5
-    
+
   df_ALL = df_ALL %>% 
     mutate(correct_PPV = 
       case_when(
@@ -318,8 +396,6 @@ library('tidyr')
 
   write_csv(df_ALL, "output/data/DF_all.csv")
   write_rds(df_ALL, "output/data/DF_all.rds")
-  
-  # DT::datatable(df_ALL)
   
   
 

@@ -3,7 +3,7 @@
 
   # https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/
   # renv::init() # Initialize a project
-  # renv::snapshot() # Create snapshot of packages
+  renv::snapshot() # Create snapshot of packages
 
 # If you are trying to run the scripts here for the first time:
 
@@ -14,13 +14,14 @@
   
 # Manually install dependencies -------------------------------------------
 
+  # **** REVIEW ------------------------------------------------------
+  
 # If needed, you can manually install the dependencies
   
   # if (!require('dplyr')) install.packages('dplyr'); library('dplyr')
   # if (!require('readr')) install.packages('readr'); library('readr')
   # if (!require('tidyr')) install.packages('tidyr'); library('tidyr')
    
-  # if (!require('corrplot')) install.packages('corrplot'); library('corrplot')
   # if (!require('patchwork')) install.packages('patchwork'); library('patchwork')
   # if (!require('ggalluvial')) install.packages('ggalluvial'); library('ggalluvial')
   

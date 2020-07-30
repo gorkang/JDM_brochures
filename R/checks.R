@@ -152,4 +152,35 @@ df_ALL %>% distinct(ResponseId, .keep_all = TRUE) %>%
   # filter(diff != 0) %>% 
   pull(N) %>% 
   unique(.) == 25
- 
+
+
+
+# Manual checks -----------------------------------------------------------
+
+source("R/1.data-preparation.R")
+library(ggplot2)
+
+  # CHECK previous experience measures --------------------------------------
+  # library(ggplot2)
+  
+  x1 = df_ALL_inddiff %>% select(matches("prevexp1"))
+  x2 = df_ALL_inddiff %>% select(matches("prevexp2")) 
+  
+  x1 %>%
+    gather(item, score, 1:8) %>%
+    ggplot(aes(item, score)) +
+    geom_jitter(width = .1) +
+    geom_boxplot(alpha = .2) +
+    theme_minimal() +
+    coord_flip()
+  
+  x2 %>%
+    gather(item, score, 1:4) %>%
+    ggplot(aes(item, score)) +
+    geom_jitter(width = .1) +
+    theme_minimal()
+  
+  summary(x1)
+  summary(x2)
+  
+

@@ -85,10 +85,15 @@ try_all_optimizers <- function(model, maxfun_value = 2e5) {
 # Mixed models result report -------------------------------------------------
 report_result <- function(model, variable_name = "", has_the_word = "") {
   
+  library(parameters)
   # DEBUG
   # model = model_screening
   # variable_name = "brochure (OLD - NEW)"
+  # model = model_screening
+  # variable_name = "normative PPV (high - low)"
+  # variable_name = "brochure (standard - pictorial):normative PPV (high - low)"
 
+  
   
   not_significant = ""
   DF_parameters_temp = parameters::parameters(model) %>% as_tibble()
@@ -110,14 +115,17 @@ report_result <- function(model, variable_name = "", has_the_word = "") {
   
   if (variable_name != "") {
     if (is_interaction == TRUE) {
-      group_by_var = stringr::word(variable_name, 1)  
-      group_by_var2 = stringr::word(gsub(".*:(.*)", "\\1", variable_name), 1)  
+      # group_by_var = stringr::word(variable_name, 1)  
+      group_by_var = gsub("*.(\\(.*))", "", variable_name)
+      # group_by_var2 = stringr::word(gsub(".*:(.*)", "\\1", variable_name), 1)
+      group_by_var2 = gsub("*.(\\(.*))", "", gsub(".*:(.*)", "\\1", variable_name))
       
       # CHECK variables are there
       if((group_by_var %in% names(DF_data) & group_by_var2 %in% names(DF_data)) == FALSE) message("At least one of the variables in 'variable_name' does not exist. Should be one of: \n- ", paste(DF_parameters %>% pull(Parameter), collapse = "\n- "))
       
     } else {
-      group_by_var = stringr::word(variable_name, 1)
+      # group_by_var = stringr::word(variable_name, 1)
+      group_by_var = gsub("*.(\\(.*))", "", variable_name)
       group_by_var2 = NULL
       
       # CHECK variables are there
@@ -138,16 +146,34 @@ report_result <- function(model, variable_name = "", has_the_word = "") {
   if (summary_var %in% names_factors_DF_data) {
     # If summary_var is a factor, COUNT
     
-    DF_counts_raw = 
+    if (is_interaction == TRUE) {
+    
+      DF_counts_raw = 
+        DF_data %>%
+        # count_(c(group_by_var, group_by_var2, summary_var)) %>% # Deprecated
+        count(!!as.symbol(paste0(group_by_var, "")), !!sym(paste0(group_by_var2, "")), !!sym(paste0(summary_var, ""))) %>% #paste0(x, "") to convert NULL to char
+        rename(VAR = 1,
+               VAR2 = 2,
+               N = n)   
+      
+      DF_counts = DF_counts_raw %>% 
+        left_join(DF_counts_raw %>% group_by(VAR, VAR2) %>% summarise(SUM = sum(N)),  by = c("VAR", "VAR2")) %>% 
+        unite("VAR",  VAR:summary_var)
+      
+    } else {
+      
+      DF_counts_raw = 
         DF_data %>%
         # count_(c(group_by_var, group_by_var2, summary_var)) %>% # Deprecated
         count(!!as.symbol(paste0(group_by_var, "")), !!sym(paste0(group_by_var2, "")), !!sym(paste0(summary_var, ""))) %>% #paste0(x, "") to convert NULL to char
         rename(VAR = 1, 
                N = n)   
+      
+      DF_counts = DF_counts_raw %>% 
+        left_join(DF_counts_raw %>% group_by(VAR) %>% summarise(SUM = sum(N)),  by = "VAR") %>% 
+        unite("VAR",  VAR:summary_var)
+    }
     
-    DF_counts = DF_counts_raw %>% 
-      left_join(DF_counts_raw %>% group_by(VAR) %>% summarise(SUM = sum(N)),  by = "VAR") %>% 
-      unite("VAR",  VAR:summary_var)
     
   } else {
   
@@ -184,7 +210,7 @@ report_result <- function(model, variable_name = "", has_the_word = "") {
     
   } else if (summary_var %in% names_factors_DF_data) {
     # If summary_var is a factor, we give counts
-    message(1:nrow(DF_counts) %>% map_chr( ~ paste0(" ",  DF_counts$VAR[.x], " ", group_by_var, "/", summary_var, " (N = ", DF_counts$N[.x], ", ", DF_counts$N[.x]/ DF_counts$SUM[.x], ")\n")))
+    message(1:nrow(DF_counts) %>% map_chr( ~ paste0(" ",  DF_counts$VAR[.x], " ", group_by_var, "/", summary_var, " (", (DF_counts$N[.x]/ DF_counts$SUM[.x])*100, "%, N = ", DF_counts$N[.x], " out of ", DF_counts$SUM[.x],  ")\n")))
     
   } else if (group_by_var %in% names_factors_DF_data) {
     # If group_by_var is a factor, we show M (SD)
